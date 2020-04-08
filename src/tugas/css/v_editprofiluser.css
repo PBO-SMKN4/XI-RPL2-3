@@ -1,0 +1,25 @@
+.profil{
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-border-width: 0 5 0 0;
+    -fx-border-color: #05D39B;
+    -fx-text-fill: #05D39B;
+}
+.side:hover{
+    -fx-background-color: #F2FEFA;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-border-width: 0 5 0 0;
+    -fx-border-color: #05D39B; 
+    -fx-text-fill: #05D39B;
+    -fx-font-weight: bold;
+    -fx-font-size:14px;
+}
+.side{
+    -fx-background-color: #F2FEFA;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-text-fill: #BABABA;
+    -fx-font-weight: bold;
+    -fx-font-size:14px;
+}
