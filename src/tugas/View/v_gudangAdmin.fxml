@@ -121,22 +121,22 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <TableView fx:id="table" prefHeight="417.0" prefWidth="778.0" stylesheets="@../../tugas.css/table.css" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+                  <TableView fx:id="table_gudang" prefHeight="417.0" prefWidth="778.0" stylesheets="@../../tugas.css/table.css" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                      <columns>
                         <TableColumn fx:id="col_id" minWidth="-1.0" prefWidth="50.0" text="ID" />
-                        <TableColumn fx:id="col_action1" minWidth="-Infinity" prefWidth="85.0" text="Name Item" />
+                        <TableColumn fx:id="col_namaitem" minWidth="-Infinity" prefWidth="85.0" text="Name Item" />
                         <TableColumn fx:id="col_brand" minWidth="-Infinity" prefWidth="89.0" text="Brand" />
                         <TableColumn fx:id="col_category" minWidth="-Infinity" prefWidth="93.0" text="Category" />
                         <TableColumn fx:id="col_date" minWidth="-Infinity" prefWidth="95.0" text="Date" />
                         <TableColumn fx:id="col_qty" minWidth="-Infinity" prefWidth="61.0" text="QTY" />
                         <TableColumn fx:id="col_price" minWidth="-Infinity" prefWidth="81.0" text="Price" />
-                        <TableColumn fx:id="col_amount" minWidth="-Infinity" prefWidth="83.0" text="Total" />
+                        <TableColumn fx:id="col_total" minWidth="-Infinity" prefWidth="83.0" text="Total" />
                         <TableColumn fx:id="col_action" minWidth="-Infinity" prefWidth="86.0" text="Action" />
                      </columns>
                   </TableView>
                </children>
             </GridPane>
-            <Button layoutX="19.0" layoutY="85.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="139.0" style="-fx-background-color: white; -fx-border-color: #17ca9a; -fx-border-radius: 3px;" text="Add Item" textFill="#17ca9a">
+            <Button layoutX="19.0" layoutY="85.0" mnemonicParsing="false" onMouseClicked="#add_item" prefHeight="36.0" prefWidth="139.0" style="-fx-background-color: white; -fx-border-color: #17ca9a; -fx-border-radius: 3px;" text="Add Item" textFill="#17ca9a">
                <font>
                   <Font name="Century Gothic" size="13.0" />
                </font>

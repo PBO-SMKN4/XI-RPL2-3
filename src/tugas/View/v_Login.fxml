@@ -18,7 +18,7 @@
       <AnchorPane layoutX="344.0" prefHeight="400.0" prefWidth="355.0" style="-fx-background-color: #efefef;">
          <children>
             <Label alignment="CENTER" layoutX="112.0" layoutY="14.0" prefHeight="65.0" prefWidth="133.0" style="-fx-font-size: 30px;" text="Sign In" />
-            <Hyperlink layoutX="201.0" layoutY="211.0" text="Forget Password ?" />
+            <Hyperlink layoutX="201.0" layoutY="211.0" onMouseClicked="#forget" text="Forget Password ?" />
             <HBox layoutX="38.0" layoutY="102.0" prefHeight="32.0" prefWidth="268.0" style="-fx-border-width: 0px 0px 2px 0px; -fx-border-color: black;">
                <children>
                   <MaterialDesignIconView glyphName="ACCOUNT_BOX_OUTLINE" size="27">
@@ -39,7 +39,7 @@
                   <JFXPasswordField fx:id="pf_password" focusColor="#00a6a3" labelFloat="true" prefHeight="32.0" prefWidth="234.0" promptText="Password" unFocusColor="TRANSPARENT" />
                </children>
             </HBox>
-            <JFXButton layoutX="39.0" layoutY="267.0" prefHeight="32.0" prefWidth="268.0" style="-fx-background-color: #00A6A3;" text="LOGIN" textFill="WHITE">
+            <JFXButton layoutX="39.0" layoutY="267.0" onMouseClicked="#login" prefHeight="32.0" prefWidth="268.0" style="-fx-background-color: #00A6A3;" text="LOGIN" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font></JFXButton>
