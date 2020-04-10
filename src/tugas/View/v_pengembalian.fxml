@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXToggleButton?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import de.jensd.fx.glyphs.icons525.Icons525View?>
 <?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
@@ -20,13 +21,38 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="629.0" prefWidth="945.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tugas.Controller.HalamanUtamaController">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="710.0" prefWidth="945.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tugas.Controller.PengembalianController">
    <children>
-      <Text fill="#05d39b" layoutX="69.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SYSTEM MANAGEMENT SCHOOL">
-         <font>
-            <Font name="Century Gothic Bold" size="17.0" />
-         </font>
-      </Text>
+      <AnchorPane prefHeight="30.0" prefWidth="945.0" style="-fx-background-color: #17ca9a;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Button contentDisplay="GRAPHIC_ONLY" layoutX="867.0" mnemonicParsing="false" onAction="#min" prefHeight="21.0" prefWidth="31.0" style="-fx-background-color: #17ca9a;" text="Button" textFill="#17ca9a00" AnchorPane.rightAnchor="46.0">
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="MINUS" size="20" />
+               </graphic>
+            </Button>
+            <Button contentDisplay="GRAPHIC_ONLY" layoutX="903.0" mnemonicParsing="false" onAction="#close" prefHeight="9.0" prefWidth="31.0" style="-fx-background-color: #17ca9a;" text="Button" AnchorPane.rightAnchor="10.0">
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="TIMES" size="20" />
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="30.0" prefHeight="50.0" prefWidth="945.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <FontAwesomeIconView fill="#17ca9a" glyphName="DROPBOX" layoutX="33.0" layoutY="35.0" size="30" />
+            <Text fill="#05d39b" layoutX="70.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SYSTEM MANAGEMENT SCHOOL">
+               <font>
+                  <Font name="Century Gothic Bold" size="17.0" />
+               </font>
+            </Text>
+            <Circle fx:id="myCircle" fill="#17ca9a" layoutX="859.0" layoutY="25.0" radius="18.0" stroke="#bababa" strokeType="INSIDE" AnchorPane.rightAnchor="68.0" />
+            <Label layoutX="883.0" layoutY="15.0" text="ADMIN" textFill="#bababa" AnchorPane.rightAnchor="14.0">
+               <font>
+                  <Font name="Century Gothic Bold" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
       <AnchorPane layoutX="5.0" layoutY="78.0" prefHeight="552.0" prefWidth="259.0">
          <children>
             <Button alignment="BASELINE_LEFT" layoutX="1.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="259.0" style="-fx-background-color: white;" styleClass="side" text="Dashboard" textFill="#bababa">
@@ -95,141 +121,159 @@
             </Button>
          </children>
       </AnchorPane>
-      <FontAwesomeIconView fill="#17ca9a" glyphName="DROPBOX" layoutX="33.0" layoutY="67.0" size="30" />
-      <AnchorPane prefHeight="30.0" prefWidth="945.0" style="-fx-background-color: #17ca9a;">
+      <AnchorPane layoutX="265.0" layoutY="78.0" prefHeight="552.0" prefWidth="680.0" style="-fx-background-color: #f3fcfb;" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="265.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="78.0">
          <children>
-            <Button contentDisplay="GRAPHIC_ONLY" layoutX="867.0" mnemonicParsing="false" onAction="#min" prefHeight="21.0" prefWidth="31.0" style="-fx-background-color: #17ca9a;" text="Button" textFill="#17ca9a00" AnchorPane.rightAnchor="46.0">
-               <graphic>
-                  <FontAwesomeIconView fill="WHITE" glyphName="MINUS" size="20" />
-               </graphic>
-            </Button>
-            <Button contentDisplay="GRAPHIC_ONLY" layoutX="903.0" mnemonicParsing="false" onAction="#close" prefHeight="9.0" prefWidth="31.0" style="-fx-background-color: #17ca9a;" text="Button" AnchorPane.rightAnchor="10.0">
-               <graphic>
-                  <FontAwesomeIconView fill="WHITE" glyphName="TIMES" size="20" />
-               </graphic>
-            </Button>
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="265.0" layoutY="78.0" prefHeight="552.0" prefWidth="680.0" style="-fx-background-color: #f3fcfb;">
-         <children>
-            <TextField layoutX="168.0" layoutY="103.0" prefHeight="36.0" prefWidth="287.0" promptText="Search" style="-fx-background-radius: 20px 0px 0px 20px; -fx-background-color: white; -fx-border-color: #17ca9a; -fx-border-radius: 20px 0px 0px 20px;">
-               <font>
-                  <Font name="Century Gothic" size="14.0" />
-               </font>
-            </TextField>
+            <MaterialIconView fill="#17ca9a" glyphName="MOVE_TO_INBOX" layoutX="31.0" layoutY="69.0" size="50" wrappingWidth="39.0" />
             <Text fill="#bababa" layoutX="89.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RETURN">
                <font>
                   <Font name="Century Gothic Bold" size="36.0" />
                </font>
             </Text>
-            <Line endX="534.0" endY="-1.52587890625E-5" layoutX="125.0" layoutY="78.0" startX="-106.0" startY="-1.52587890625E-5" stroke="#bababa" />
-            <MaterialIconView fill="#17ca9a" glyphName="MOVE_TO_INBOX" layoutX="31.0" layoutY="69.0" size="50" wrappingWidth="39.0" />
-            <Label layoutX="31.0" layoutY="112.0" text="Search ID Borrow" textFill="#bababa">
+            <Line endX="534.0" endY="-1.52587890625E-5" layoutX="125.0" layoutY="78.0" startX="-106.0" startY="-1.52587890625E-5" stroke="#bababa" AnchorPane.leftAnchor="18.5" AnchorPane.rightAnchor="20.5" />
+            <TextField fx:id="inpId" layoutX="168.0" layoutY="121.0" prefHeight="36.0" prefWidth="328.0" promptText="Search" style="-fx-background-radius: 20px 0px 0px 20px; -fx-background-color: white; -fx-border-color: #17ca9a; -fx-border-radius: 20px;">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </TextField>
+            <Label fx:id="lblSearchId" layoutX="31.0" layoutY="130.0" text="Search ID Borrow" textFill="#bababa">
                <font>
                   <Font name="Century Gothic Bold" size="14.0" />
                </font>
             </Label>
-            <Button layoutX="455.0" layoutY="103.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="37.0" style="-fx-background-radius: 0px 20px 20px 0px; -fx-background-color: #17ca9a; -fx-border-color: none; -fx-border-radius: 0px 20px 20px 0px;">
+            <Button fx:id="cariID" layoutX="459.0" layoutY="122.0" mnemonicParsing="false" onAction="#cariID" prefHeight="34.0" prefWidth="37.0" style="-fx-background-radius: 0px 20px 20px 0px; -fx-background-color: #17ca9a; -fx-border-color: #17ca9a; -fx-border-radius: 0px 20px 20px 0px;">
                <graphic>
-                  <FontAwesomeIconView fill="WHITE" glyphName="SEARCH" size="20" wrappingWidth="18.571428298950195" />
+                  <FontAwesomeIconView fx:id="iconSearch" fill="WHITE" glyphName="SEARCH" size="20" wrappingWidth="18.571428298950195" />
                </graphic>
             </Button>
-            <Label layoutX="31.0" layoutY="201.0" text="ID Borrow" textFill="#bababa">
-               <font>
-                  <Font name="Century Gothic Bold" size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="29.0" layoutY="227.0" text="Username" textFill="#bababa">
-               <font>
-                  <Font name="Century Gothic Bold" size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="29.0" layoutY="253.0" text="Date Return" textFill="#bababa">
-               <font>
-                  <Font name="Century Gothic Bold" size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="29.0" layoutY="279.0" text="Date Borrow" textFill="#bababa">
-               <font>
-                  <Font name="Century Gothic Bold" size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="28.0" layoutY="312.0" text="List Item" textFill="#bababa">
-               <font>
-                  <Font name="Century Gothic Bold" size="14.0" />
-               </font>
-            </Label>
-            <GridPane layoutX="24.0" layoutY="335.0" prefHeight="186.0" prefWidth="627.0">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-               </rowConstraints>
+            <AnchorPane fx:id="formData" layoutX="24.0" layoutY="177.0" prefHeight="451.0" prefWidth="627.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="29.0" AnchorPane.topAnchor="177.0">
                <children>
-                  <TableView fx:id="table" prefHeight="266.0" prefWidth="657.0" stylesheets="@../../tugas.css/table.css" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+                  <TableView fx:id="table" layoutY="182.0" prefHeight="197.0" prefWidth="627.0" styleClass="cell" stylesheets="@../../tugas.css/table.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <columns>
-                        <TableColumn fx:id="col_id" minWidth="-1.0" prefWidth="50.0" text="No" />
-                        <TableColumn fx:id="col_action1" minWidth="-Infinity" prefWidth="183.0" text="Name Item" />
-                        <TableColumn fx:id="col_category" minWidth="-Infinity" prefWidth="202.0" text="Category" />
-                        <TableColumn fx:id="col_qty" minWidth="-Infinity" prefWidth="191.0" text="QTY" />
+                        <TableColumn fx:id="colNo" minWidth="-1.0" prefWidth="50.0" text="No" />
+                        <TableColumn fx:id="colNameItem" maxWidth="7000.0" minWidth="-Infinity" prefWidth="183.0" text="Name Item" />
+                        <TableColumn fx:id="colCategory" maxWidth="7000.0" minWidth="-Infinity" prefWidth="202.0" text="Category" />
+                        <TableColumn fx:id="colQty" maxWidth="7000.0" minWidth="-Infinity" prefWidth="191.0" text="QTY" />
                      </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
                   </TableView>
+                  <Label text="DETAIL DATA" textFill="#bababa">
+                     <font>
+                        <Font name="Century Gothic Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <GridPane layoutY="50.0" prefHeight="130.0" prefWidth="252.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="77.0" minWidth="10.0" prefWidth="30.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="138.0" minWidth="10.0" prefWidth="128.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="ID Borrow" textFill="#bababa">
+                           <font>
+                              <Font name="Century Gothic Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label text="Username" textFill="#bababa" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Century Gothic Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label text="Date Borrow" textFill="#bababa" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Century Gothic Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label text="Date Return" textFill="#bababa" GridPane.rowIndex="3">
+                           <font>
+                              <Font name="Century Gothic Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="10.0" layoutY="61.0" text="Status" textFill="#bababa" GridPane.rowIndex="4">
+                           <font>
+                              <Font name="Century Gothic Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label text="List Item" textFill="#bababa" GridPane.rowIndex="5">
+                           <font>
+                              <Font name="Century Gothic Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label text=":" textFill="#bababa" GridPane.columnIndex="1">
+                           <font>
+                              <Font name="Century Gothic Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label text=":" textFill="#bababa" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Century Gothic Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label text=":" textFill="#bababa" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Century Gothic Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label text=":" textFill="#bababa" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <font>
+                              <Font name="Century Gothic Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="120.0" layoutY="61.0" text=":" textFill="#bababa" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <font>
+                              <Font name="Century Gothic Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblId" text="ID Borrow" textFill="#bababa" GridPane.columnIndex="2">
+                           <font>
+                              <Font name="Century Gothic" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblUsername" text="Username" textFill="#bababa" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Century Gothic" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblDateBorrow" text="Date Borrow" textFill="#bababa" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Century Gothic" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblDateReturn" text="Date Return" textFill="#bababa" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                           <font>
+                              <Font name="Century Gothic" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblStatus" layoutX="136.0" layoutY="61.0" text="Status" textFill="#bababa" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                           <font>
+                              <Font name="Century Gothic" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </GridPane>
+                  <Button fx:id="btnKembalikan" layoutX="525.0" layoutY="400.0" mnemonicParsing="false" onAction="#kembalikanBarang" prefHeight="35.0" prefWidth="102.0" style="-fx-background-color: #17ca9a;" text="Kembalikan" textFill="WHITE" AnchorPane.rightAnchor="0.0">
+                     <font>
+                        <Font name="Century Gothic" size="13.0" />
+                     </font>
+                  </Button>
                </children>
-            </GridPane>
-            <Label layoutX="165.0" layoutY="198.0" text=":" textFill="#bababa">
+            </AnchorPane>
+            <JFXToggleButton fx:id="tgglScan" layoutX="27.0" layoutY="79.0" style="-fx-padding: 0px 0px;" text="Scan QRCode" textFill="#808080">
                <font>
-                  <Font name="Century Gothic Bold" size="14.0" />
+                  <Font size="14.0" />
                </font>
-            </Label>
-            <Label layoutX="165.0" layoutY="226.0" text=":" textFill="#bababa">
-               <font>
-                  <Font name="Century Gothic Bold" size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="165.0" layoutY="250.0" text=":" textFill="#bababa">
-               <font>
-                  <Font name="Century Gothic Bold" size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="166.0" layoutY="278.0" text=":" textFill="#bababa">
-               <font>
-                  <Font name="Century Gothic Bold" size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="182.0" layoutY="199.0" text="ID Borrow" textFill="#bababa">
-               <font>
-                  <Font name="Century Gothic" size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="182.0" layoutY="251.0" text="Date Return" textFill="#bababa">
-               <font>
-                  <Font name="Century Gothic" size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="182.0" layoutY="227.0" text="Username" textFill="#bababa">
-               <font>
-                  <Font name="Century Gothic" size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="182.0" layoutY="280.0" text="Date Borrow" textFill="#bababa">
-               <font>
-                  <Font name="Century Gothic" size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="28.0" layoutY="159.0" text="RETURN DATA" textFill="#bababa">
-               <font>
-                  <Font name="Century Gothic Bold" size="24.0" />
-               </font>
-            </Label>
+            </JFXToggleButton>
          </children>
       </AnchorPane>
-      <Circle fx:id="myCircle" fill="#17ca9a" layoutX="859.0" layoutY="54.0" radius="18.0" stroke="#bababa" strokeType="INSIDE" />
-      <Label layoutX="883.0" layoutY="46.0" text="ADMIN" textFill="#bababa">
-         <font>
-            <Font name="Century Gothic Bold" size="14.0" />
-         </font>
-      </Label>
    </children>
    <stylesheets>
       <URL value="@../css/table.css" />

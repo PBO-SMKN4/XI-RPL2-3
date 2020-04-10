@@ -27,6 +27,7 @@ import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
@@ -61,7 +62,6 @@ public class GudangAdminController implements Initializable {
     private double xOffset;
     private double yOffset;
 
-
     private Connection connection;
     private ObservableList<tblGudangModel> list;
     @FXML
@@ -84,12 +84,14 @@ public class GudangAdminController implements Initializable {
     private TableColumn<tblGudangModel, Double> col_total;
     @FXML
     private TableColumn col_action;
+    
+    tblGudangModel mod = new tblGudangModel();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+
         populateTableView();
-        
+
         this.moveAnchorPane();
         myCircle.setStroke(Color.WHITE);
         Image img1 = new Image("/tugas/css/profil.jpg", false);
@@ -117,14 +119,14 @@ public class GudangAdminController implements Initializable {
                 model.setLokasi_barang(rs.getString("lokasi_barang"));
                 model.setPrice(rs.getDouble("price"));
                 model.setTotal(rs.getDouble("total"));
-                model.setKondisi(rs.getString("kondisi"));         
+                model.setKondisi(rs.getString("kondisi"));
                 model.setTanggal_terima(rs.getString("tanggal_terima"));
                 model.setNote(rs.getString("keterangan"));
                 model.setFoto(rs.getString("foto"));
-                
+
                 list.add(model);
             }
-            
+
             col_id.setCellValueFactory(new PropertyValueFactory<>("id"));
             col_namaitem.setCellValueFactory(new PropertyValueFactory<>("nama_barang"));
             col_brand.setCellValueFactory(new PropertyValueFactory<>("brand"));
@@ -133,44 +135,51 @@ public class GudangAdminController implements Initializable {
             col_qty.setCellValueFactory(new PropertyValueFactory<>("qty"));
             col_price.setCellValueFactory(new PropertyValueFactory<>("price"));
             col_total.setCellValueFactory(new PropertyValueFactory<>("total"));
-            
-           
-            
-            Callback<TableColumn<tblGudangModel,String>,TableCell<tblGudangModel,String>> cellFactory=(param) -> {
-                final TableCell<tblGudangModel,String> cell = new TableCell<tblGudangModel,String>(){
-                
+
+            Callback<TableColumn<tblGudangModel, String>, TableCell<tblGudangModel, String>> cellFactory = (param) -> {
+                final TableCell<tblGudangModel, String> cell = new TableCell<tblGudangModel, String>() {
+
                     @Override
-                    public void updateItem(String item,boolean empty){
+                    public void updateItem(String item, boolean empty) {
                         super.updateItem(item, empty);
-                        
-                        if(empty){
+
+                        if (empty) {
                             setGraphic(null);
                             setText(null);
-                        }
-                        else{
-                            final Button edit = new Button("EDIT");
+                        } else {
+                            final Button edit = new Button("Detail");
                             edit.setOnAction(event -> {
                                 tblGudangModel model = getTableView().getItems().get(getIndex());
-                                System.out.println("Hai");
-                                
-                                
+                                Parent root;
+                                try {
+                                    root = FXMLLoader.load(getClass().getResource("/tugas/View/v_detailBarang.fxml"));
+//                                    DetailBarangController detail = new DetailBarangController();
+//                                    detail.setNama(model.getNama_barang());
+
+                                    Node node = (Node) event.getSource();
+
+                                    Stage stage = (Stage) node.getScene().getWindow();
+
+                                    stage.setScene(new Scene(root));
+                                } catch (IOException ex) {
+                                    Logger.getLogger(GudangAdminController.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+
                             });
                             setGraphic(edit);
                             setText(null);
                         }
                     }
-                    
+
                 };
-                
-                
-                
-                
-                return cell; 
+
+                return cell;
             };
+
             col_action.setCellFactory(cellFactory);
-            
+
             table_gudang.setItems(list);
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(GudangAdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -205,7 +214,9 @@ public class GudangAdminController implements Initializable {
     public void min(ActionEvent event) {
 
         Main.getPrimaryStage().setIconified(true);
+
     }
+
     @FXML
     void add_item(MouseEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/tugas/View/v_tambah.fxml"));

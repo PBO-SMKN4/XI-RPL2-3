@@ -5,39 +5,62 @@ package tugas.model;
  * @author Fadillah
  */
 public class tblPengembalianModel {
-    private String namaBarang;
-    private String jmlh;
+    private String nameItem;
+    private String category;
+    private String qty;
     
-    public tblPengembalianModel(String namaBarang, String jmlh){
-        this.namaBarang = namaBarang;
-        this.jmlh = jmlh;
+    public tblPengembalianModel(String nameItem,String category, String qty){
+        this.nameItem = nameItem;
+        this.category = category;
+        this.qty = qty;
     }
 
     /**
-     * @return the namaBarang
+     * @return the nameItem
      */
-    public String getNamaBarang() {
-        return namaBarang;
+    public String getNameItem() {
+        return nameItem;
     }
 
     /**
-     * @param namaBarang the namaBarang to set
+     * @param nameItem the nameItem to set
      */
-    public void setNamaBarang(String namaBarang) {
-        this.namaBarang = namaBarang;
+    public void setNameItem(String nameItem) {
+        this.nameItem = nameItem;
     }
 
     /**
-     * @return the jmlh
+     * @return the categoty
      */
-    public String getJmlh() {
-        return jmlh;
+   
+
+    /**
+     * @return the qty
+     */
+    public String getQty() {
+        return qty;
     }
 
     /**
-     * @param jmlh the jmlh to set
+     * @param qty the qty to set
      */
-    public void setJmlh(String jmlh) {
-        this.jmlh = jmlh;
+    public void setQty(String qty) {
+        this.qty = qty;
     }
+
+    /**
+     * @return the category
+     */
+    public String getCategory() {
+        return category;
+    }
+
+    /**
+     * @param category the category to set
+     */
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    
 }

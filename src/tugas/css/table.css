@@ -53,3 +53,6 @@
 -fx-background-color: #05D39B ;
 -fx-text-fill: white;
 }
+.cell{
+    -fx-alignment: CENTER;
+}
