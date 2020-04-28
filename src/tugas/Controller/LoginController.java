@@ -16,16 +16,23 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javax.swing.JOptionPane;
+import tugas.Main;
 import tugas.help.DBConnect;
 
 
@@ -89,33 +96,54 @@ public class LoginController implements Initializable {
                 String role = rs.getString("status");
                 
                 if(role.equals("admin")){
+                    
                     Parent root =   FXMLLoader.load(getClass().getResource("/tugas/View/v_halamanUtama.fxml"));
-            
                     Node node = (Node) event.getSource();
-
                     Stage stage = (Stage) node.getScene().getWindow();
-
                     stage.setScene(new Scene(root));
+                    
+                    Screen screen = Screen.getPrimary();
+                    Rectangle2D bounds = screen.getVisualBounds();
+                    Main.getPrimaryStage().setX(bounds.getMinX());
+                    Main.getPrimaryStage().setY(bounds.getMinY());
+                    Main.getPrimaryStage().setWidth(bounds.getWidth());
+                    Main.getPrimaryStage().setHeight(bounds.getHeight());
+                    Main.getPrimaryStage().setMaximized(true);
+                    JOptionPane.showMessageDialog(null, "Login Berhasil!");
+                    
+                    
+                    
+                    //setFullScreen(true);
+                    //setMaximized(boolean)
+                    
                     System.out.println("Login Berhasil");
                 }
                 if(role.equals("user")){
-                     Parent root =   FXMLLoader.load(getClass().getResource("/tugas/View/v_halamanUtamaUser.fxml"));
-            
-                        Node node = (Node) event.getSource();
-
-                        Stage stage = (Stage) node.getScene().getWindow();
-
-                        stage.setScene(new Scene(root));
-                        System.out.println("Login Berhasil");
+                    JOptionPane.showMessageDialog(null, "Login Berhasil!");
+                    Parent root =   FXMLLoader.load(getClass().getResource("/tugas/View/v_halamanUtamaUser.fxml"));
+                    Node node = (Node) event.getSource();
+                    Stage stage = (Stage) node.getScene().getWindow();
+                    stage.setScene(new Scene(root));
+                    System.out.println("Login Berhasil");
                 }
+            }else{
+                JOptionPane.showMessageDialog(null, "Username/Password Salah!");
             }
         }
         
-}
+    }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        tf_username.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent ke) {
+                KeyCode kc = ke.getCode();
+                if (kc.equals(KeyCode.ENTER)) {
+                    //login();
+                }
+            }
+        });
     }    
     
 }

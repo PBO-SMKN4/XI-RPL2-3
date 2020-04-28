@@ -5,17 +5,24 @@
  */
 package tugas.Controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
 import tugas.Main;
 
 /**
@@ -48,8 +55,24 @@ public class HalamanUtamaUserController implements Initializable {
         Image img1 = new Image("/tugas/css/profil.jpg", false);
         myCircle.setFill(new ImagePattern(img1));
     }
+    @FXML
+    void btnPinjam(ActionEvent event) throws IOException{
+        Parent root =   FXMLLoader.load(getClass().getResource("/tugas/View/v_pinjamBarang.fxml"));
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        stage.setScene(new Scene(root));
+    }
+    
+    @FXML
+//    void btnPengembalian(ActionEvent event) throws IOException{
+//        Parent root =   FXMLLoader.load(getClass().getResource("/tugas/View/.fxml"));
+//        Node node = (Node) event.getSource();
+//        Stage stage = (Stage) node.getScene().getWindow();
+//        stage.setScene(new Scene(root));
+//    }
+    
     public void moveAnchorPane()
-	{
+    {
 		anchorPane.setOnMousePressed(event -> {
 	            xOffset = Main.getPrimaryStage().getX() - event.getScreenX();
 	            yOffset = Main.getPrimaryStage().getY() - event.getScreenY();
@@ -65,7 +88,7 @@ public class HalamanUtamaUserController implements Initializable {
 		anchorPane.setOnMouseReleased(event -> {
 			anchorPane.setCursor(Cursor.DEFAULT);
 	        });
-	}
+    }
 	
 	 @FXML
 	 public void close(ActionEvent event) {

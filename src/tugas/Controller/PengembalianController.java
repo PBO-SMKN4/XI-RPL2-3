@@ -7,6 +7,7 @@ package tugas.Controller;
 
 import com.jfoenix.controls.JFXToggleButton;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -22,7 +23,11 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -31,8 +36,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
 import tugas.help.DBConnect;
 import tugas.model.tblPengembalianModel;
 
@@ -189,6 +196,89 @@ public class PengembalianController implements Initializable {
             ex.printStackTrace();
         }
         
+    }
+    @FXML
+    void btnDashboard(MouseEvent event) throws IOException{
+            Parent root = FXMLLoader.load(getClass().getResource("/tugas/View/v_halamanUtama.fxml"));
+            Node node = (Node) event.getSource();
+            Stage stage = (Stage) node.getScene().getWindow();
+            stage.setScene(new Scene(root));
+    
+    }
+    
+    @FXML
+    void btnUser(MouseEvent event) throws IOException{
+            Parent root = FXMLLoader.load(getClass().getResource("/tugas/View/v_dataUser.fxml"));
+            Node node = (Node) event.getSource();
+            Stage stage = (Stage) node.getScene().getWindow();
+            stage.setScene(new Scene(root));
+    
+    }
+    @FXML
+    void btnReturn(MouseEvent event) throws IOException{
+            Parent root = FXMLLoader.load(getClass().getResource("/tugas/View/v_pengembalian.fxml"));
+            Node node = (Node) event.getSource();
+            Stage stage = (Stage) node.getScene().getWindow();
+            stage.setScene(new Scene(root));
+    
+    }
+    @FXML
+    void btnBorrow(MouseEvent event) throws IOException{
+            Parent root = FXMLLoader.load(getClass().getResource("/tugas/View/v_dataPeminjaman.fxml"));
+            Node node = (Node) event.getSource();
+            Stage stage = (Stage) node.getScene().getWindow();
+            stage.setScene(new Scene(root));
+    }
+    
+    @FXML
+    void gudang(MouseEvent event) throws IOException{
+            Parent root =   FXMLLoader.load(getClass().getResource("/tugas/View/v_gudangAdmin.fxml"));
+            
+            Node node = (Node) event.getSource();
+            
+            Stage stage = (Stage) node.getScene().getWindow();
+            
+            stage.setScene(new Scene(root));
+    }
+    
+    @FXML
+    void btnReport(MouseEvent event) throws IOException{
+            Parent root = FXMLLoader.load(getClass().getResource("/tugas/View/v_report.fxml"));
+            Node node = (Node) event.getSource();
+            Stage stage = (Stage) node.getScene().getWindow();
+            stage.setScene(new Scene(root));
+    }
+    
+    @FXML
+    void btnPlanning(MouseEvent event) throws IOException{
+            Parent root = FXMLLoader.load(getClass().getResource("/tugas/View/v_planning.fxml"));
+            Node node = (Node) event.getSource();
+            Stage stage = (Stage) node.getScene().getWindow();
+            stage.setScene(new Scene(root));
+    }
+    
+    
+    @FXML
+    void add_admin(MouseEvent event) throws IOException{
+            Parent root =   FXMLLoader.load(getClass().getResource("/tugas/View/v_registeradmin.fxml"));
+            
+            Node node = (Node) event.getSource();
+            
+            Stage stage = (Stage) node.getScene().getWindow();
+            
+            stage.setScene(new Scene(root));
+    }
+    
+    @FXML
+    void exit(MouseEvent event) throws IOException{
+            Parent root =   FXMLLoader.load(getClass().getResource("/tugas/View/v_Login.fxml"));
+            
+            Node node = (Node) event.getSource();
+            
+            Stage stage = (Stage) node.getScene().getWindow();
+            
+            stage.setScene(new Scene(root));
+            
     }
 
     @FXML
