@@ -5,31 +5,25 @@
  */
 package tugas.Controller;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
-import javafx.stage.Stage;
 import tugas.Main;
 
 /**
  * FXML Controller class
  *
- * @author Fadillah
+ * @author asus
  */
-public class DataUserController implements Initializable {
+public class ReportAdminController implements Initializable {
     
     @FXML
     private AnchorPane anchorPane;
@@ -37,7 +31,7 @@ public class DataUserController implements Initializable {
     private double xOffset;
     private double yOffset;
     @FXML
-    private Circle myCircle1;
+    private Circle myCircle;
 
     /**
      * Initializes the controller class.
@@ -45,22 +39,14 @@ public class DataUserController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        this.moveAnchorPane();
+         this.moveAnchorPane();
 
-        myCircle1.setStroke(Color.WHITE);
+        myCircle.setStroke(Color.WHITE);
         Image img1 = new Image("/tugas/css/profil.jpg", false);
-        myCircle1.setFill(new ImagePattern(img1));
-    }    
-
-    @FXML
-    private void btnDashboard(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/tugas/View/v_halamanUtama.fxml"));
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        stage.setScene(new Scene(root));
-    }
+        myCircle.setFill(new ImagePattern(img1));
+    }   
     
-     public void moveAnchorPane(){
+    public void moveAnchorPane(){
 	anchorPane.setOnMousePressed(event -> {
 	    xOffset = Main.getPrimaryStage().getX() - event.getScreenX();
 	    yOffset = Main.getPrimaryStage().getY() - event.getScreenY();

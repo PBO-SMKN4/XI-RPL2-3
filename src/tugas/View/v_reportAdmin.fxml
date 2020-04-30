@@ -21,7 +21,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="629.0" prefWidth="1027.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tugas.Controller.DataUserController">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="629.0" prefWidth="1027.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tugas.Controller.ReportAdminController">
    <children>
       <Text fill="#05d39b" layoutX="69.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SYSTEM MANAGEMENT SCHOOL">
          <font>
@@ -38,7 +38,7 @@
                   <FontAwesomeIconView fill="#17ca9a" glyphName="DASHBOARD" size="25" wrappingWidth="40.0" />
                </graphic>
             </Button>
-            <Button alignment="BASELINE_LEFT" layoutX="1.0" layoutY="68.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="259.0" style="-fx-background-color: #f3fcfb;" styleClass="user" text="User" textFill="#bababa">
+            <Button alignment="BASELINE_LEFT" layoutX="1.0" layoutY="68.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="259.0" style="-fx-background-color: white;" styleClass="side" text="User" textFill="#bababa">
                <font>
                   <Font name="Century Gothic Bold" size="14.0" />
                </font>
@@ -62,7 +62,7 @@
                   <Icons525View fill="#17ca9a" glyphName="SHARE2" size="25" wrappingWidth="38.0" />
                </graphic>
             </Button>
-            <Button alignment="BASELINE_LEFT" layoutX="1.0" layoutY="272.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="259.0" style="-fx-background-color: white;" styleClass="warehouse" text="Warehouse" textFill="#bababa">
+            <Button alignment="BASELINE_LEFT" layoutX="1.0" layoutY="272.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="259.0" style="-fx-background-color: white;" styleClass="side" text="Warehouse" textFill="#bababa">
                <font>
                   <Font name="Century Gothic Bold" size="14.0" />
                </font>
@@ -70,7 +70,7 @@
                   <MaterialIconView fill="#17ca9a" glyphName="INBOX" size="30" wrappingWidth="36.0" />
                </graphic>
             </Button>
-            <Button alignment="BASELINE_LEFT" layoutX="1.0" layoutY="340.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="259.0" style="-fx-font-weight: bold; -fx-background-color: white;" styleClass="side" text="Report" textFill="#bababa">
+            <Button alignment="BASELINE_LEFT" layoutX="1.0" layoutY="340.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="259.0" style="-fx-font-weight: bold; -fx-background-color: #f3fcfb;" styleClass="report" text="Report" textFill="#bababa">
                <font>
                   <Font name="Century Gothic" size="14.0" />
                </font>
@@ -123,12 +123,13 @@
                <children>
                   <TableView fx:id="table_gudang" prefHeight="417.0" prefWidth="778.0" stylesheets="@../../tugas.css/table.css" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                      <columns>
-                        <TableColumn fx:id="col_id" minWidth="-1.0" prefWidth="60.0" text="No" />
-                        <TableColumn fx:id="col_namaitem" minWidth="-Infinity" prefWidth="127.0" text="Username" />
-                        <TableColumn fx:id="col_brand" minWidth="-Infinity" prefWidth="126.0" text="Full Name" />
-                        <TableColumn fx:id="col_category" minWidth="-Infinity" prefWidth="132.0" text="Class" />
-                        <TableColumn fx:id="col_date" minWidth="-Infinity" prefWidth="144.0" text="E-Mail" />
-                        <TableColumn fx:id="col_action" minWidth="-Infinity" prefWidth="134.0" text="Action" />
+                        <TableColumn fx:id="col_id" minWidth="-1.0" prefWidth="50.0" text="No" />
+                        <TableColumn fx:id="col_namaitem" minWidth="-Infinity" prefWidth="101.0" text="Nis" />
+                        <TableColumn fx:id="col_brand" minWidth="-Infinity" prefWidth="88.0" text="Name" />
+                        <TableColumn fx:id="col_category" minWidth="-Infinity" prefWidth="139.0" text="Class" />
+                        <TableColumn fx:id="col_date" minWidth="-Infinity" prefWidth="108.0" text="E-Mail" />
+                        <TableColumn minWidth="-Infinity" prefWidth="117.0" text="Report" />
+                        <TableColumn fx:id="col_action" minWidth="-Infinity" prefWidth="120.0" text="Action" />
                      </columns>
                   </TableView>
                </children>
@@ -144,24 +145,16 @@
                   <FontAwesomeIconView fill="WHITE" glyphName="SEARCH" size="20" wrappingWidth="18.571428298950195" />
                </graphic>
             </Button>
-            <Text fill="#bababa" layoutX="77.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="USER">
+            <Text fill="#bababa" layoutX="77.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="REPORT">
                <font>
                   <Font name="Century Gothic Bold" size="36.0" />
                </font>
             </Text>
             <Line endX="617.0" endY="-1.52587890625E-5" layoutX="126.0" layoutY="59.0" startX="-106.0" startY="-1.52587890625E-5" stroke="#bababa" />
-            <MaterialDesignIconView fill="#17ca9a" glyphName="ACCOUNT" layoutX="26.0" layoutY="44.0" size="50" wrappingWidth="48.0000165104866" />
-            <Button layoutX="26.0" layoutY="87.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="139.0" style="-fx-background-color: white; -fx-border-color: #17ca9a; -fx-border-radius: 3px;" text="Add User" textFill="#17ca9a">
-               <font>
-                  <Font name="Century Gothic" size="13.0" />
-               </font>
-               <graphic>
-                  <FontAwesomeIconView fill="#17ca9a" glyphName="PLUS" size="20" wrappingWidth="22.714285850524902" />
-               </graphic>
-            </Button>
+            <MaterialDesignIconView fill="#17ca9a" glyphName="ALERT_OCTAGON" layoutX="20.0" layoutY="47.0" size="50" text="" wrappingWidth="48.0000165104866" />
          </children>
       </AnchorPane>
-      <Circle fx:id="myCircle1" fill="#17ca9a" layoutX="942.0" layoutY="56.0" radius="18.0" stroke="#bababa" strokeType="INSIDE" />
+      <Circle fx:id="myCircle" fill="#17ca9a" layoutX="942.0" layoutY="56.0" radius="18.0" stroke="#bababa" strokeType="INSIDE" />
       <Label layoutX="967.0" layoutY="47.0" text="ADMIN" textFill="#bababa">
          <font>
             <Font name="Century Gothic Bold" size="14.0" />
@@ -170,6 +163,6 @@
    </children>
    <stylesheets>
       <URL value="@../css/table.css" />
-      <URL value="@../css/v_datauser.css" />
+      <URL value="@../css/v_reportadmin.css" />
    </stylesheets>
 </AnchorPane>
