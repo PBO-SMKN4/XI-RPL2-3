@@ -13,6 +13,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 import java.util.UUID;
@@ -150,15 +152,20 @@ public class PengembalianController implements Initializable {
     private void cariID() {
         try{
             Statement stmt = (Statement) koneksi.createStatement();
-            String query = "SELECT t_transaksi.id_transaksi, t_transaksi.username, t_transaksi.status, t_transaksi.jmlh_pinjam, t_assets.nama_barang, t_assets.kategori FROM t_transaksi,t_assets WHERE t_transaksi.id_transaksi = '" + inpId.getText() +"' AND t_assets.id_assets = t_transaksi.id_assets";
+            String query = "SELECT t_transaksi.id_transaksi, t_transaksi.username, t_transaksi.status, t_transaksi.jmlh_pinjam, t_transaksi.tgl_pinjam, t_transaksi.tgl_kembali, t_assets.nama_barang, t_assets.category FROM t_transaksi,t_assets WHERE t_transaksi.id_transaksi = '" + inpId.getText() +"' AND t_assets.id_asset = t_transaksi.id_asset";
             ResultSet rs = stmt.executeQuery(query);
+            String pattern = "hh:mm:ss dd-MM-yyyy";
+            SimpleDateFormat sdf = new SimpleDateFormat(pattern);
             
             int no = 1;
             if(rs.next()){
                 table.getItems().clear();
-                oblist.add(new tblPengembalianModel(rs.getString("nama_barang"),rs.getString("kategori"), rs.getString("jmlh_pinjam") ));
+                oblist.add(new tblPengembalianModel(rs.getString("nama_barang"),rs.getString("category"), rs.getString("jmlh_pinjam") ));
                 inpId.setText("");
                 lblId.setText(rs.getString("id_transaksi"));
+                
+                lblDateBorrow.setText(sdf.format(rs.getTimestamp("tgl_pinjam")));
+                lblDateReturn.setText(sdf.format(rs.getTimestamp("tgl_kembali")));
                 lblUsername.setText(rs.getString("username"));
                 lblStatus.setText(rs.getString("status"));
                 no++;

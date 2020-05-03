@@ -8,10 +8,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="443.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="tugas.Controller.PinjamBarangController">
-    <stylesheets>14
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="443.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tugas.Controller.PinjamBarangController">
+    <stylesheets>
         <URL value="@/tugas/css/v_pinjambarang.css" />
     </stylesheets>
+    
    <children>
       <Label layoutX="130.0" layoutY="34.0" text="PINJAM BARANG">
          <font>
@@ -19,7 +20,7 @@
          </font>
       </Label>
       <Label layoutX="84.0" layoutY="157.0" text="Username" />
-      <TextField fx:id="txtUsername" layoutX="176.0" layoutY="153.0" prefHeight="25.0" prefWidth="184.0" />
+      <TextField fx:id="txtUsername" disable="true" layoutX="176.0" layoutY="153.0" prefHeight="25.0" prefWidth="184.0" />
       <Label layoutX="84.0" layoutY="193.0" text="Barang" />
       <Label layoutX="84.0" layoutY="232.0" text="Jumlah" />
       <TextField fx:id="txtJml" layoutX="176.0" layoutY="228.0" prefHeight="25.0" prefWidth="184.0" />

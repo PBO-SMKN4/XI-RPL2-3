@@ -22,7 +22,7 @@ import javafx.stage.Stage;
  *
  * @author Fadillah
  */
-public class V_dataPeminjamanController implements Initializable {
+public class DataPeminjamanController implements Initializable {
 
     /**
      * Initializes the controller class.

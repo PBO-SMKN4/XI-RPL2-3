@@ -13,6 +13,7 @@ import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ResourceBundle;
+import java.util.UUID;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -41,11 +42,11 @@ public class PinjamBarangController implements Initializable {
     @FXML
     private TextField txtJml;
     @FXML
-    private TextField txtIdTransaksi;
-    @FXML
     private ComboBox<String> cmbBarang;
     @FXML
     private Button btnPinjam;
+    
+    GeneratorQrCode qrCode = new GeneratorQrCode();
 
     /**
      * Initializes the controller class.
@@ -61,6 +62,7 @@ public class PinjamBarangController implements Initializable {
         
         cmbBarang.getItems().removeAll(cmbBarang.getItems());
         cmbBarang.getItems().addAll(itemBarang);
+        txtUsername.setText(LoginController.getUsername());
     }    
 
     @FXML
@@ -68,34 +70,34 @@ public class PinjamBarangController implements Initializable {
         Connection connection = DBConnect.getKoneksi("localhost", "3306", "root", "", "db_sma");
         
         try {
-            String username = txtUsername.getText();
+            String username = LoginController.getUsername();
             String barang = cmbBarang.getSelectionModel().getSelectedItem(); 
             String jmlBarang = txtJml.getText();
             LocalDateTime waktu = LocalDateTime.now();
             String statusBarang = "pinjam";
             String idBarang = "";
+            String idPinjam = UUID.randomUUID().toString();
+            idPinjam = idPinjam.substring(0, 8);
             
-            if(username.equals(username)){
+            if(barang != null && jmlBarang != null ){
                 if(barang.equals("Infocus")){
                     idBarang = "ID01";
                 }
                 Statement statement = connection.createStatement();
             
                 String query = "INSERT INTO t_transaksi("
-                        + "id_assets, username, jmlh_pinjam, tgl_pinjam, status) " 
-                        +"VALUES('"+ idBarang +"','"+username+"','"+jmlBarang+"','"+waktu+"','"+statusBarang+"')";
+                        + "id_transaksi, id_asset, username, jmlh_pinjam, tgl_pinjam, status) " 
+                        +"VALUES('"+ idPinjam +"','"+idBarang +"','"+username+"','"+jmlBarang+"','"+waktu+"','"+statusBarang+"')";
 
                 int status = statement.executeUpdate(query);
 
                 if(status > 0){
+                    qrCode.generate(idPinjam);
                     System.out.println("Peminjaman Berhasil");
                     JOptionPane.showMessageDialog(null, "Peminjaman Berhasil");
-                    Parent root =   FXMLLoader.load(getClass().getResource("/tugas/View/v_pinjamBarang.fxml"));
-
+                    Parent root =   FXMLLoader.load(getClass().getResource("/tugas/View/v_halamanUtamaUser.fxml"));
                     Node node = (Node) event.getSource();
-
                     Stage stage = (Stage) node.getScene().getWindow();
-
                     stage.setScene(new Scene(root));
                 }
             }

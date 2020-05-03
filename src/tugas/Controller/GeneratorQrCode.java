@@ -22,13 +22,10 @@ import java.util.UUID;
  * @author Fadillah
  */
 public class GeneratorQrCode {
-    public static void main(String[] args) {
-        String uniqueID = UUID.randomUUID().toString();
-        System.out.println(uniqueID);
+    
+    public void generate(String id){
         
-	String myCodeText = uniqueID;
-        
-	String filePath = "/D://QRCode_Generator/"+uniqueID.substring(0, 8)+".png";
+	String filePath = "/D://QRCode_Generator/"+id+".png";
 	int size = 250;
 	String fileType = "png";
 	File myFile = new File(filePath);
@@ -42,7 +39,7 @@ public class GeneratorQrCode {
             hintMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
  
             QRCodeWriter qrCodeWriter = new QRCodeWriter();
-            BitMatrix byteMatrix = qrCodeWriter.encode(myCodeText, BarcodeFormat.QR_CODE, size,size, hintMap);
+            BitMatrix byteMatrix = qrCodeWriter.encode(id, BarcodeFormat.QR_CODE, size,size, hintMap);
             int CrunchifyWidth = byteMatrix.getWidth();
             BufferedImage image = new BufferedImage(CrunchifyWidth, CrunchifyWidth, BufferedImage.TYPE_INT_RGB);
             image.createGraphics();
