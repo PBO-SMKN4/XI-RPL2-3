@@ -25,6 +25,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javax.swing.JOptionPane;
 import tugas.help.DBConnect;
 
 /**
@@ -78,19 +79,19 @@ public class RegisterController implements Initializable {
             Statement statement = connection.createStatement();
             
             String query = "INSERT INTO t_login(fullname,username,email,password,status) " 
-                    +"VALUES('"+fullname+"','"+username+"','"+email+"','"+real_password+"', 'user')";
-            
+                    +"VALUES('"+fullname+"','"+username+"','"+email+"','"+real_password+"', 'user');";
+            String query2 = "INSERT INTO t_data_diri(username, id_kelas, nis) VALUES('"+username+"', '1', '');";
             int status = statement.executeUpdate(query);
+            statement.executeUpdate(query2);
             
             if(status > 0){
-                System.out.println("User Teregistrasi");
+                JOptionPane.showMessageDialog(null, "Register Berhasil!");
                 Parent root =   FXMLLoader.load(getClass().getResource("/tugas/View/v_Login.fxml"));
-            
-                 Node node = (Node) event.getSource();
-            
-                 Stage stage = (Stage) node.getScene().getWindow();
-                    
-                   stage.setScene(new Scene(root));
+                Node node = (Node) event.getSource();
+                Stage stage = (Stage) node.getScene().getWindow();
+                stage.setScene(new Scene(root));
+            }else{
+                JOptionPane.showMessageDialog(null, "Username sudah terdaftar!");
             }
         }
         catch(SQLException e){
