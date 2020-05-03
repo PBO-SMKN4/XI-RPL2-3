@@ -36,6 +36,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Window;
 import tugas.Main;
 import tugas.help.DBConnect;
+import tugas.help.DateUtil;
 
 /**
  * FXML Controller class
@@ -61,7 +62,7 @@ public class TambahController implements Initializable {
     @FXML
     private TextField tf_brand;
     @FXML
-    private TextArea ta_description;
+    private TextField ta_description;
     @FXML
     private DatePicker dp_date;
     @FXML
@@ -87,6 +88,8 @@ public class TambahController implements Initializable {
     private FileInputStream fis;
     @FXML
     private TextField tf_foto;
+    @FXML
+    private TextField tf_tipe;
 
     /**
      * Initializes the controller class.
@@ -142,20 +145,21 @@ public class TambahController implements Initializable {
             String category = tf_category.getText();
             String brand = tf_brand.getText();
             String description = ta_description.getText();
-            String date = dp_date.getEditor().getText();
+            String date = DateUtil.format(dp_date.getValue());
             int qty = Integer.parseInt(tf_qty.getText());
+            String type = tf_tipe.getText();
             double price = Integer.parseInt(tf_price.getText());
             String uom = tf_uom.getText();
             String condition = tf_condition.getText();
             String location = tf_location.getText();
             double total = price * qty;
-            String foto = tf_foto.getText();
+            String foto = DateUtil.format(dp_date.getValue());
             foto = foto.replace("\\", "\\\\");
 
             Statement statement = connection.createStatement();
 
-            String query = "INSERT INTO t_assets(id,nama_barang,brand,category,qty,uom,lokasi_barang,price,total,kondisi,tanggal_terima,keterangan,foto) "
-                    + "VALUES('" + id + "','" + nama_item + "','" + brand + "','" + category + "','" + qty + "','" + uom + "','" + location + "','" + price + "','" + total + "','" + condition + "','" + date + "','" + description + "','" + foto + "')";
+            String query = "INSERT INTO t_assets(id_asset,nama_barang,brand,category,qty,uom,lokasi_barang,jenis,price,total,kondisi,tanggal_terima,keterangan,foto) "
+                    + "VALUES('" + id + "','" + nama_item + "','" + brand + "','" + category + "','" + qty + "','" + uom + "','" + location + "','" + type + "','" + price + "','" + total + "','" + condition + "','" + date + "','" + description + "','" + foto + "')";
 
             System.out.println(query);
             int status = statement.executeUpdate(query);

@@ -110,12 +110,12 @@
                   <Font name="Century Gothic Bold" size="16.0" />
                </font>
             </Label>
-            <Button layoutX="406.0" layoutY="276.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="71.0" style="-fx-background-color: #17ca9a;" text="SAVE" textFill="WHITE">
+            <Button layoutX="406.0" layoutY="276.0" mnemonicParsing="false" onMouseClicked="#save" prefHeight="28.0" prefWidth="71.0" style="-fx-background-color: #17ca9a;" text="SAVE" textFill="WHITE">
                <font>
                   <Font name="Century Gothic Bold" size="14.0" />
                </font>
             </Button>
-            <Button layoutX="487.0" layoutY="276.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="71.0" style="-fx-background-color: #bababa;" text="BACK" textFill="WHITE">
+            <Button layoutX="487.0" layoutY="276.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="28.0" prefWidth="71.0" style="-fx-background-color: #bababa;" text="BACK" textFill="WHITE">
                <font>
                   <Font name="Century Gothic Bold" size="14.0" />
                </font>
@@ -156,27 +156,27 @@
                </font>
             </Label>
             <Icons525View fill="#17ca9a" glyphName="EDIT" layoutX="39.0" layoutY="58.0" size="40" />
-            <TextField layoutX="406.0" layoutY="82.0" prefHeight="28.0" prefWidth="251.0">
+            <TextField fx:id="tf_nis" layoutX="406.0" layoutY="82.0" prefHeight="28.0" prefWidth="251.0">
                <font>
                   <Font name="Century Gothic" size="14.0" />
                </font>
             </TextField>
-            <TextField layoutX="406.0" layoutY="231.0" prefHeight="28.0" prefWidth="251.0">
+            <TextField fx:id="tf_kelas" layoutX="406.0" layoutY="231.0" prefHeight="28.0" prefWidth="251.0">
                <font>
                   <Font name="Century Gothic" size="14.0" />
                </font>
             </TextField>
-            <TextField layoutX="406.0" layoutY="195.0" prefHeight="28.0" prefWidth="251.0">
+            <TextField fx:id="tf_email" layoutX="406.0" layoutY="195.0" prefHeight="28.0" prefWidth="251.0">
                <font>
                   <Font name="Century Gothic" size="14.0" />
                </font>
             </TextField>
-            <TextField layoutX="406.0" layoutY="159.0" prefHeight="28.0" prefWidth="251.0">
+            <TextField fx:id="tf_username" layoutX="406.0" layoutY="159.0" prefHeight="28.0" prefWidth="251.0">
                <font>
                   <Font name="Century Gothic" size="14.0" />
                </font>
             </TextField>
-            <TextField layoutX="406.0" layoutY="121.0" prefHeight="28.0" prefWidth="251.0">
+            <TextField fx:id="tf_fullname" layoutX="406.0" layoutY="121.0" prefHeight="28.0" prefWidth="251.0">
                <font>
                   <Font name="Century Gothic" size="14.0" />
                </font>

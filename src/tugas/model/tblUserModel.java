@@ -5,77 +5,111 @@
  */
 package tugas.model;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 /**
  *
  * @author Fadillah
  */
 public class tblUserModel {
-    private String username;
-    private String fullname;
-    private String kelas;
-    private String email;
-    
-    public tblUserModel(String username,String fullname, String kelas, String email){
-        this.username = username;
-        this.fullname = fullname;
-        this.kelas = kelas;
-        this.email = email;
+    private final IntegerProperty no;
+    private final StringProperty nis;
+    private final StringProperty username;
+    private final StringProperty fullname;
+    private final StringProperty kelas;
+    private final StringProperty email;
+
+    public tblUserModel(Integer no, String nis,String username, String fullname, String kelas, String email) {
+        this.no = new SimpleIntegerProperty(no);
+        this.nis = new SimpleStringProperty(nis);
+        this.username = new SimpleStringProperty(username);
+        this.fullname = new SimpleStringProperty(fullname);
+        this.kelas = new SimpleStringProperty(kelas);
+        this.email = new SimpleStringProperty(email);
+
     }
 
-    /**
-     * @return the username
-     */
-    public String getUsername() {
+    public tblUserModel() {
+        this(Integer.SIZE,null,null, null, null, null);
+    }
+
+    public final String getNis() {
+        return nis.get();
+    }
+
+    public final void setNis(String value) {
+        nis.set(value);
+    }
+
+    public StringProperty nisProperty() {
+        return nis;
+    }
+    
+    
+
+    public final int getNo() {
+        return no.get();
+    }
+
+    public final void setNo(int value) {
+        no.set(value);
+    }
+
+    public IntegerProperty noProperty() {
+        return no;
+    }
+    
+    
+
+    public final String getUsername() {
+        return username.get();
+    }
+
+    public final void setUsername(String value) {
+        username.set(value);
+    }
+
+    public StringProperty usernameProperty() {
         return username;
     }
 
-    /**
-     * @param username the username to set
-     */
-    public void setUsername(String username) {
-        this.username = username;
+    public final String getFullname() {
+        return fullname.get();
     }
 
-    /**
-     * @return the fullname
-     */
-    public String getFullname() {
+    public final void setFullname(String value) {
+        fullname.set(value);
+    }
+
+    public StringProperty fullnameProperty() {
         return fullname;
     }
 
-    /**
-     * @param fullname the fullname to set
-     */
-    public void setFullname(String fullname) {
-        this.fullname = fullname;
+    public final String getKelas() {
+        return kelas.get();
     }
 
-    /**
-     * @return the kelas
-     */
-    public String getKelas() {
+    public final void setKelas(String value) {
+        kelas.set(value);
+    }
+
+    public StringProperty kelasProperty() {
         return kelas;
     }
 
-    /**
-     * @param kelas the kelas to set
-     */
-    public void setKelas(String kelas) {
-        this.kelas = kelas;
+    public final String getEmail() {
+        return email.get();
     }
 
-    /**
-     * @return the email
-     */
-    public String getEmail() {
+    public final void setEmail(String value) {
+        email.set(value);
+    }
+
+    public StringProperty emailProperty() {
         return email;
     }
 
-    /**
-     * @param email the email to set
-     */
-    public void setEmail(String email) {
-        this.email = email;
-    }
-    
 }

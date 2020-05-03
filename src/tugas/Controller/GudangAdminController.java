@@ -45,6 +45,7 @@ import javafx.util.Callback;
 import tugas.model.tblGudangModel;
 import tugas.Main;
 import tugas.help.DBConnect;
+import tugas.help.DateUtil;
 
 /**
  * FXML Controller class
@@ -85,7 +86,6 @@ public class GudangAdminController implements Initializable {
     @FXML
     private TableColumn col_action;
     
-    tblGudangModel mod = new tblGudangModel();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -98,43 +98,46 @@ public class GudangAdminController implements Initializable {
         myCircle.setFill(new ImagePattern(img1));
 
     }
-
+   
+  
     private void populateTableView() {
+       
         try {
             list = FXCollections.observableArrayList();
 
             String query = "SELECT * FROM t_assets";
             connection = DBConnect.getKoneksi("localhost", "3306", "root", "", "db_sma");
             ResultSet rs = connection.createStatement().executeQuery(query);
-
+ 
             while (rs.next()) {
 
                 tblGudangModel model = new tblGudangModel();
-                model.setId(rs.getString("id"));
+                model.setIdAsset(rs.getString("id_asset"));
                 model.setNama_barang(rs.getString("nama_barang"));
                 model.setBrand(rs.getString("brand"));
                 model.setCategory(rs.getString("category"));
                 model.setQty(rs.getInt("qty"));
                 model.setUom(rs.getString("uom"));
                 model.setLokasi_barang(rs.getString("lokasi_barang"));
+                model.setJenis(rs.getString("jenis"));
                 model.setPrice(rs.getDouble("price"));
                 model.setTotal(rs.getDouble("total"));
                 model.setKondisi(rs.getString("kondisi"));
-                model.setTanggal_terima(rs.getString("tanggal_terima"));
-                model.setNote(rs.getString("keterangan"));
+                model.setTanggal_terima(DateUtil.parse(rs.getString("tanggal_terima")));
+                model.setKeterangan(rs.getString("keterangan"));
                 model.setFoto(rs.getString("foto"));
 
                 list.add(model);
             }
 
-            col_id.setCellValueFactory(new PropertyValueFactory<>("id"));
-            col_namaitem.setCellValueFactory(new PropertyValueFactory<>("nama_barang"));
-            col_brand.setCellValueFactory(new PropertyValueFactory<>("brand"));
-            col_category.setCellValueFactory(new PropertyValueFactory<>("category"));
-            col_date.setCellValueFactory(new PropertyValueFactory<>("tanggal_terima"));
-            col_qty.setCellValueFactory(new PropertyValueFactory<>("qty"));
-            col_price.setCellValueFactory(new PropertyValueFactory<>("price"));
-            col_total.setCellValueFactory(new PropertyValueFactory<>("total"));
+            col_id.setCellValueFactory(cellData -> cellData.getValue().idAssetProperty());
+            col_namaitem.setCellValueFactory(cellData -> cellData.getValue().nama_barangProperty());
+            col_brand.setCellValueFactory(cellData -> cellData.getValue().brandProperty());
+            col_category.setCellValueFactory(cellData -> cellData.getValue().categoryProperty());
+            col_date.setCellValueFactory(cellData -> cellData.getValue().tanggal_terimaProperty());
+            col_qty.setCellValueFactory(cellData -> cellData.getValue().qtyProperty().asObject());
+            col_price.setCellValueFactory(cellData -> cellData.getValue().priceProperty().asObject());
+            col_total.setCellValueFactory(cellData -> cellData.getValue().totalProperty().asObject());
 
             Callback<TableColumn<tblGudangModel, String>, TableCell<tblGudangModel, String>> cellFactory = (param) -> {
                 final TableCell<tblGudangModel, String> cell = new TableCell<tblGudangModel, String>() {
@@ -149,21 +152,10 @@ public class GudangAdminController implements Initializable {
                         } else {
                             final Button edit = new Button("Detail");
                             edit.setOnAction(event -> {
-                                tblGudangModel model = getTableView().getItems().get(getIndex());
-                                Parent root;
-                                try {
-                                    root = FXMLLoader.load(getClass().getResource("/tugas/View/v_detailBarang.fxml"));
-//                                    DetailBarangController detail = new DetailBarangController();
-//                                    detail.setNama(model.getNama_barang());
-
-                                    Node node = (Node) event.getSource();
-
-                                    Stage stage = (Stage) node.getScene().getWindow();
-
-                                    stage.setScene(new Scene(root));
-                                } catch (IOException ex) {
-                                    Logger.getLogger(GudangAdminController.class.getName()).log(Level.SEVERE, null, ex);
-                                }
+                                tblGudangModel model = table_gudang.getSelectionModel().getSelectedItem();
+                                if (model != null){
+                                    boolean okClicked = Main.showBarangDetails(model);   
+                                } 
 
                             });
                             setGraphic(edit);
@@ -184,7 +176,7 @@ public class GudangAdminController implements Initializable {
             Logger.getLogger(GudangAdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    @FXML
     void moveAnchorPane() {
         anchorPane.setOnMousePressed(event -> {
             xOffset = Main.getPrimaryStage().getX() - event.getScreenX();

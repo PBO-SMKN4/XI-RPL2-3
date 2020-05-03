@@ -213,8 +213,8 @@
                </font>
             </Label>
             <TextField fx:id="ta_description" layoutX="117.0" layoutY="252.0" prefHeight="25.0" prefWidth="259.0" />
-            <TextField fx:id="ta_tipe" layoutX="117.0" layoutY="216.0" prefHeight="25.0" prefWidth="259.0" />
-            <Label layoutX="19.0" layoutY="222.0" text="Tipe" textFill="#bababa">
+            <TextField fx:id="tf_tipe" layoutX="117.0" layoutY="216.0" prefHeight="25.0" prefWidth="259.0" />
+            <Label layoutX="19.0" layoutY="222.0" text="Type" textFill="#bababa">
                <font>
                   <Font name="Century Gothic Bold" size="14.0" />
                </font>

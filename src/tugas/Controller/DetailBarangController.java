@@ -19,8 +19,10 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
+import javafx.stage.Stage;
 import tugas.Main;
 import tugas.Controller.GudangAdminController;
+import tugas.help.DateUtil;
 import tugas.model.tblGudangModel;
 
 /**
@@ -58,32 +60,44 @@ public class DetailBarangController implements Initializable  {
     @FXML
     private Label location ;
     @FXML
-    private TextFlow cat ;
-
-    /**
-     * Initializes the controller class.
-     * @param text
-     * @param cat
-     */
+    private Label jenis;
     
+    private Stage detailStage;
+    private tblGudangModel gudang;
+    private boolean okClicked = false;
     
-    
-    public void setDescription(TextFlow cat){
-        this.cat = cat;
-    }
-    public TextFlow getDescription(){
-        return cat;
+    public void setDetailStage(Stage detailStage){
+        this.detailStage = detailStage;
     }
     
- 
+    public void setDetail(tblGudangModel gudang){
+        this.gudang = gudang;
+        
+          namaitem.setText(gudang.getNama_barang());
+          brand.setText(gudang.getBrand());
+          category.setText(gudang.getCategory());
+          description.setText(gudang.getKeterangan());
+          uom.setText(gudang.getUom());
+          condition.setText(gudang.getKondisi());
+          location.setText(gudang.getLokasi_barang());
+          jenis.setText(gudang.getJenis());
+          price.setText(Double.toString(gudang.getPrice()));
+          qty.setText(Integer.toString(gudang.getQty()));
+          date.setText(DateUtil.format(gudang.getTanggal_terima()));
+          
+        
+    }
+    
+    public boolean isOkClicked(){
+        return okClicked;
+    }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         this.moveAnchorPane();
-        GudangAdminController gudang = new GudangAdminController();
-        namaitem.setText(gudang.mod.getNama_barang());
-             
+      
+ 
         myCircle.setStroke(Color.WHITE);
         Image img1 = new Image("/tugas/css/profil.jpg", false);
         myCircle.setFill(new ImagePattern(img1));

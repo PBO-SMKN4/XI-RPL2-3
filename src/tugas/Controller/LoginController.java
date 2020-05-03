@@ -92,6 +92,7 @@ public class LoginController implements Initializable {
          boolean akunBenar = false;
             
          MessageDigest digest = MessageDigest.getInstance("SHA-1");
+         System.out.println(digest);
          digest.reset();
          digest.update(password.getBytes("utf8"));
          real_password = String.format("%040x", new BigInteger(1, digest.digest()));
