@@ -5,17 +5,31 @@
  */
 package tugas.Controller;
 
+import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
 import tugas.Main;
 
 /**
@@ -32,6 +46,20 @@ public class ReportAdminController implements Initializable {
     private double yOffset;
     @FXML
     private Circle myCircle;
+    @FXML
+    private TableView<?> table_gudang;
+    @FXML
+    private TableColumn<?, ?> col_id;
+    @FXML
+    private TableColumn<?, ?> col_namaitem;
+    @FXML
+    private TableColumn<?, ?> col_brand;
+    @FXML
+    private TableColumn<?, ?> col_category;
+    @FXML
+    private TableColumn<?, ?> col_date;
+    @FXML
+    private TableColumn<?, ?> col_action;
 
     /**
      * Initializes the controller class.
@@ -45,6 +73,78 @@ public class ReportAdminController implements Initializable {
         Image img1 = new Image("/tugas/css/profil.jpg", false);
         myCircle.setFill(new ImagePattern(img1));
     }   
+    @FXML
+    void btnDashboard(MouseEvent event) throws IOException{
+            Parent root = FXMLLoader.load(getClass().getResource("/tugas/View/v_halamanUtama.fxml"));
+            Node node = (Node) event.getSource();
+            Stage stage = (Stage) node.getScene().getWindow();
+            stage.setScene(new Scene(root));
+    
+    }
+    @FXML
+    void btnUser(MouseEvent event) throws IOException{
+            Parent root = FXMLLoader.load(getClass().getResource("/tugas/View/v_dataUser.fxml"));
+            Node node = (Node) event.getSource();
+            Stage stage = (Stage) node.getScene().getWindow();
+            stage.setScene(new Scene(root));
+    }
+    @FXML
+    void btnReturn(MouseEvent event) throws IOException{
+            Parent root = FXMLLoader.load(getClass().getResource("/tugas/View/v_pengembalian.fxml"));
+            Node node = (Node) event.getSource();
+            Stage stage = (Stage) node.getScene().getWindow();
+            stage.setScene(new Scene(root));
+    }
+    @FXML
+    void btnBorrow(MouseEvent event) throws IOException{
+            Parent root = FXMLLoader.load(getClass().getResource("/tugas/View/v_dataPeminjaman.fxml"));
+            Node node = (Node) event.getSource();
+            Stage stage = (Stage) node.getScene().getWindow();
+            stage.setScene(new Scene(root));
+    }
+    
+    @FXML
+    void gudang(MouseEvent event) throws IOException{
+            Parent root =   FXMLLoader.load(getClass().getResource("/tugas/View/v_gudangAdmin.fxml"));
+            Node node = (Node) event.getSource();
+            Stage stage = (Stage) node.getScene().getWindow();
+            stage.setScene(new Scene(root));
+    }
+    
+    @FXML
+    void btnPlanning(MouseEvent event) throws IOException{
+            Parent root = FXMLLoader.load(getClass().getResource("/tugas/View/v_planning.fxml"));
+            Node node = (Node) event.getSource();
+            Stage stage = (Stage) node.getScene().getWindow();
+            stage.setScene(new Scene(root));
+    }
+    
+    @FXML
+    void exit(MouseEvent event) throws IOException{
+        
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation Dialog");
+        alert.setHeaderText("Look, a Confirmation Dialog");
+        alert.setContentText("Are you ok with this?");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK){
+            System.out.println("Logout");
+            try {
+                Parent root =   FXMLLoader.load(getClass().getResource("/tugas/View/v_Login.fxml"));        
+                Node node = (Node) event.getSource();
+                Stage stage = (Stage) node.getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.setMaximized(false);
+                stage.centerOnScreen();
+                
+            } catch (IOException ex) {
+                Logger.getLogger(HalamanUtamaController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+               
+        }        
+    }
     
     public void moveAnchorPane(){
 	anchorPane.setOnMousePressed(event -> {
@@ -72,5 +172,7 @@ public class ReportAdminController implements Initializable {
     public void min(ActionEvent event) {
         Main.getPrimaryStage().setIconified(true);
     }
+
+    
     
 }
