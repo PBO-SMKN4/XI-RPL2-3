@@ -72,8 +72,6 @@ public class DataUserController implements Initializable {
     @FXML
     private TableColumn<?, ?> col_action;
     @FXML
-    private Button add_user;
-    @FXML
     private TableView<tblUserModel> table;
     @FXML
     private TableColumn<?, ?> col_no;
@@ -217,12 +215,12 @@ public class DataUserController implements Initializable {
             stage.setScene(new Scene(root));
     }
     
-    
-    void add_user(MouseEvent event) throws IOException{
-            Parent root =   FXMLLoader.load(getClass().getResource("/tugas/View/v_registeradmin.fxml"));
-            Node node = (Node) event.getSource();
-            Stage stage = (Stage) node.getScene().getWindow();
-            stage.setScene(new Scene(root));
+    @FXML
+    private void btnAddUser(MouseEvent event) throws IOException {
+        Parent root =   FXMLLoader.load(getClass().getResource("/tugas/View/v_tambahUser.fxml"));
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        stage.setScene(new Scene(root));
     }
     
     @FXML
@@ -278,4 +276,6 @@ public class DataUserController implements Initializable {
     public void min(ActionEvent event) {
         Main.getPrimaryStage().setIconified(true);
     }
+
+    
 }
