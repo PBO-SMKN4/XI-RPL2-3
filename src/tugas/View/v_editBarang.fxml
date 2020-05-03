@@ -17,7 +17,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="629.0" prefWidth="945.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tugas.Controller.TambahController">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="629.0" prefWidth="945.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tugas.Controller.EditBarangController">
    <children>
       <AnchorPane prefHeight="30.0" prefWidth="945.0" style="-fx-background-color: #17ca9a;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
@@ -119,7 +119,7 @@
       </AnchorPane>
       <AnchorPane layoutX="265.0" layoutY="77.0" maxHeight="800.0" maxWidth="800.0" prefHeight="552.0" prefWidth="680.0" style="-fx-background-color: #f3fcfb;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="265.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="77.0">
          <children>
-            <Text fill="#bababa" layoutX="74.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADD ITEM">
+            <Text fill="#bababa" layoutX="74.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EDIT ITEM">
                <font>
                   <Font name="Century Gothic Bold" size="36.0" />
                </font>
@@ -170,23 +170,22 @@
                   <Font name="Century Gothic Bold" size="14.0" />
                </font>
             </Label>
-            <Button layoutX="120.0" layoutY="513.0" mnemonicParsing="false" onMouseClicked="#save" prefHeight="28.0" prefWidth="71.0" style="-fx-background-color: #17ca9a;" text="SAVE" textFill="WHITE">
+            <Button layoutX="120.0" layoutY="513.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="71.0" style="-fx-background-color: #17ca9a;" text="SAVE" textFill="WHITE">
                <font>
                   <Font name="Century Gothic Bold" size="14.0" />
                </font>
             </Button>
-            <Button layoutX="202.0" layoutY="513.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="28.0" prefWidth="71.0" style="-fx-background-color: #bababa;" text="BACK" textFill="WHITE">
+            <Button layoutX="202.0" layoutY="513.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="71.0" style="-fx-background-color: #bababa;" text="BACK" textFill="WHITE">
                <font>
                   <Font name="Century Gothic Bold" size="14.0" />
                </font>
             </Button>
-            <MaterialIconView fill="#17ca9a" glyphName="ADD_BOX" layoutX="16.0" layoutY="54.0" size="50" />
             <ImageView fx:id="gambaritem" fitHeight="262.0" fitWidth="238.0" layoutX="415.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="27.0">
                <image>
                   
                </image>
             </ImageView>
-            <Button layoutX="414.0" layoutY="326.0" mnemonicParsing="false" onMouseClicked="#image" prefHeight="20.0" prefWidth="238.0" style="-fx-background-color: #17ca9a;" text="CHOOSE IMAGE" textFill="WHITE" AnchorPane.rightAnchor="28.0">
+            <Button layoutX="414.0" layoutY="326.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="238.0" style="-fx-background-color: #17ca9a;" text="CHOOSE IMAGE" textFill="WHITE" AnchorPane.rightAnchor="28.0">
                <font>
                   <Font name="Century Gothic Bold" size="14.0" />
                </font>
@@ -219,6 +218,7 @@
                   <Font name="Century Gothic Bold" size="14.0" />
                </font>
             </Label>
+            <FontAwesomeIconView fill="#17ca9a" glyphName="EDIT" layoutX="11.0" layoutY="46.0" size="50" />
          </children>
       </AnchorPane>
    </children>

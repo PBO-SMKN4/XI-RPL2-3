@@ -136,32 +136,32 @@
                   <Font name="Century Gothic Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="309.0" layoutY="178.0" text="Date" textFill="#bababa">
+            <Label layoutX="309.0" layoutY="205.0" text="Date" textFill="#bababa">
                <font>
                   <Font name="Century Gothic Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="309.0" layoutY="209.0" text="QTY" textFill="#bababa">
+            <Label layoutX="309.0" layoutY="236.0" text="QTY" textFill="#bababa">
                <font>
                   <Font name="Century Gothic Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="310.0" layoutY="242.0" text="Price" textFill="#bababa">
+            <Label layoutX="310.0" layoutY="269.0" text="Price" textFill="#bababa">
                <font>
                   <Font name="Century Gothic Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="310.0" layoutY="273.0" text="UoM" textFill="#bababa">
+            <Label layoutX="310.0" layoutY="300.0" text="UoM" textFill="#bababa">
                <font>
                   <Font name="Century Gothic Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="310.0" layoutY="304.0" text="Condition" textFill="#bababa">
+            <Label layoutX="310.0" layoutY="331.0" text="Condition" textFill="#bababa">
                <font>
                   <Font name="Century Gothic Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="311.0" layoutY="334.0" text="Location" textFill="#bababa">
+            <Label layoutX="311.0" layoutY="361.0" text="Location" textFill="#bababa">
                <font>
                   <Font name="Century Gothic Bold" size="16.0" />
                </font>
@@ -181,12 +181,12 @@
                   <Font name="Century Gothic Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="436.0" layoutY="273.0" text=":" textFill="#bababa">
+            <Label layoutX="436.0" layoutY="300.0" text=":" textFill="#bababa">
                <font>
                   <Font name="Century Gothic Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="436.0" layoutY="178.0" text=":" textFill="#bababa">
+            <Label layoutX="436.0" layoutY="205.0" text=":" textFill="#bababa">
                <font>
                   <Font name="Century Gothic Bold" size="16.0" />
                </font>
@@ -206,22 +206,22 @@
                   <Font name="Century Gothic Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="436.0" layoutY="334.0" text=":" textFill="#bababa">
+            <Label layoutX="436.0" layoutY="361.0" text=":" textFill="#bababa">
                <font>
                   <Font name="Century Gothic Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="436.0" layoutY="304.0" text=":" textFill="#bababa">
+            <Label layoutX="436.0" layoutY="331.0" text=":" textFill="#bababa">
                <font>
                   <Font name="Century Gothic Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="436.0" layoutY="242.0" text=":" textFill="#bababa">
+            <Label layoutX="436.0" layoutY="269.0" text=":" textFill="#bababa">
                <font>
                   <Font name="Century Gothic Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="436.0" layoutY="209.0" text=":" textFill="#bababa">
+            <Label layoutX="436.0" layoutY="236.0" text=":" textFill="#bababa">
                <font>
                   <Font name="Century Gothic Bold" size="16.0" />
                </font>
@@ -281,6 +281,16 @@
                   <Font name="Century Gothic Bold" size="14.0" />
                </font>
             </Button>
+            <Label layoutX="309.0" layoutY="175.0" text="Tipe" textFill="#bababa">
+               <font>
+                  <Font name="Century Gothic Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="436.0" layoutY="174.0" text=":" textFill="#bababa">
+               <font>
+                  <Font name="Century Gothic Bold" size="16.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
       <Circle fx:id="myCircle" fill="#17ca9a" layoutX="942.0" layoutY="56.0" radius="18.0" stroke="#bababa" strokeType="INSIDE" />
