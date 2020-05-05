@@ -40,8 +40,7 @@ public class HalamanUtamaUserController implements Initializable {
     @FXML
     private AnchorPane anchorPane;
     
-    @FXML
-    private Circle myCircle;
+
 	
     private double xOffset;
     private double yOffset;
@@ -55,16 +54,14 @@ public class HalamanUtamaUserController implements Initializable {
         // TODO
         this.moveAnchorPane();
                 
-        myCircle.setStroke(Color.WHITE);
-        Image img1 = new Image("/tugas/css/profil.jpg", false);
-        myCircle.setFill(new ImagePattern(img1));
+
 //        System.out.println(userLogin.stringsList.get(1));
 //        System.out.println(userLogin.session.getUserName());
-        System.out.println(LoginController.getIdKelas());
-        System.out.println(LoginController.getUsername());
-        
-        //System.out.println(userLogin.getNama());
-        lblName.setText(LoginController.getNama());
+//        System.out.println(LoginController.getIdKelas());
+//        System.out.println(LoginController.getUsername());
+//        
+//        //System.out.println(userLogin.getNama());
+//        lblName.setText(LoginController.getNama());
     }
     
     

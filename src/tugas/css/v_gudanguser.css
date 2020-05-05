@@ -1,4 +1,4 @@
-.dashboard{
+.warehouse{
     -fx-background-radius: 0;
     -fx-background-insets: 0;
     -fx-border-width: 0 0 3 0;
@@ -6,7 +6,7 @@
     -fx-text-fill: #05D39B;
 }
 .side:hover{
-    -fx-background-color: #FFF;
+    -fx-background-color: #F2FEFA;
     -fx-background-radius: 0;
     -fx-background-insets: 0;
     -fx-border-width: 0 0 3 0;
@@ -16,10 +16,10 @@
     -fx-font-size:15px;
 }
 .side{
-    -fx-background-color: #F5F5F5;
+    -fx-background-color: #F2FEFA;
     -fx-background-radius: 0;
     -fx-background-insets: 0;
     -fx-text-fill: #BABABA;
-
-
+    -fx-font-weight: bold;
+    -fx-font-size:15px;
 }

@@ -1,30 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.icons525.Icons525View?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="443.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tugas.Controller.PinjamBarangController">
-    <stylesheets>
-        <URL value="@/tugas/css/v_pinjambarang.css" />
-    </stylesheets>
+<AnchorPane id="AnchorPane" prefHeight="629.0" prefWidth="945.0" style="-fx-background-color: white;" styleClass="mainFxmlClass" stylesheets="@../css/v_pinjambarang.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tugas.Controller.PinjamBarangController">
     
    <children>
-      <Label layoutX="130.0" layoutY="34.0" text="PINJAM BARANG">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="84.0" layoutY="157.0" text="Username" />
-      <TextField fx:id="txtUsername" disable="true" layoutX="176.0" layoutY="153.0" prefHeight="25.0" prefWidth="184.0" />
-      <Label layoutX="84.0" layoutY="193.0" text="Barang" />
-      <Label layoutX="84.0" layoutY="232.0" text="Jumlah" />
-      <TextField fx:id="txtJml" layoutX="176.0" layoutY="228.0" prefHeight="25.0" prefWidth="184.0" />
-      <ComboBox fx:id="cmbBarang" layoutX="176.0" layoutY="189.0" prefHeight="25.0" prefWidth="184.0" />
-      <Button fx:id="btnPinjam" layoutX="176.0" layoutY="305.0" mnemonicParsing="false" onAction="#pinjamBarang" prefHeight="25.0" prefWidth="184.0" text="Pinjam" />
+      <AnchorPane layoutY="-1.0" prefHeight="30.0" prefWidth="945.0" style="-fx-background-color: #17ca9a;">
+         <children>
+            <Button contentDisplay="GRAPHIC_ONLY" layoutX="867.0" mnemonicParsing="false" onAction="#min" prefHeight="21.0" prefWidth="31.0" style="-fx-background-color: #17ca9a;" text="Button" textFill="#17ca9a00" AnchorPane.rightAnchor="46.0">
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="MINUS" size="20" />
+               </graphic>
+            </Button>
+            <Button contentDisplay="GRAPHIC_ONLY" layoutX="903.0" mnemonicParsing="false" onAction="#close" prefHeight="9.0" prefWidth="31.0" style="-fx-background-color: #17ca9a;" text="Button" AnchorPane.rightAnchor="10.0">
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="TIMES" size="20" />
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="29.0" prefHeight="50.0" prefWidth="945.0" style="-fx-background-color: white;">
+         <children>
+            <FontAwesomeIconView fill="#17ca9a" glyphName="DROPBOX" layoutX="33.0" layoutY="35.0" size="30" />
+            <Text fill="#05d39b" layoutX="70.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SYSTEM MANAGEMENT SCHOOL">
+               <font>
+                  <Font name="Century Gothic Bold" size="17.0" />
+               </font>
+            </Text>
+            <Button alignment="BASELINE_LEFT" layoutX="860.0" layoutY="12.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="71.0" style="-fx-background-color: #17ca9a;" text="Logout" textFill="WHITE" AnchorPane.rightAnchor="14.0">
+               <font>
+                  <Font name="Century Gothic Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button alignment="BASELINE_LEFT" layoutX="498.0" layoutY="7.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="71.0" style="-fx-background-color: white;" styleClass="borrow" text="Borrow" textFill="#bababa" AnchorPane.rightAnchor="376.0">
+               <font>
+                  <Font name="Century Gothic Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button alignment="BASELINE_LEFT" layoutX="421.0" layoutY="7.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="71.0" style="-fx-background-color: white;" styleClass="side" text=" Home" textFill="#bababa" AnchorPane.rightAnchor="453.0">
+               <font>
+                  <Font name="Century Gothic Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button alignment="BASELINE_LEFT" layoutX="577.0" layoutY="7.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="79.0" style="-fx-background-color: white;" styleClass="side" text="  Return" textFill="#bababa" AnchorPane.rightAnchor="289.0">
+               <font>
+                  <Font name="Century Gothic Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button alignment="BASELINE_LEFT" layoutX="652.0" layoutY="6.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="79.0" style="-fx-background-color: white;" styleClass="side" text=" Report" textFill="#bababa" AnchorPane.rightAnchor="214.0">
+               <font>
+                  <Font name="Century Gothic Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button alignment="BASELINE_LEFT" layoutX="729.0" layoutY="7.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="102.0" style="-fx-background-color: white;" styleClass="side" text="Warehouse" textFill="#bababa" AnchorPane.rightAnchor="114.0">
+               <font>
+                  <Font name="Century Gothic Bold" size="15.0" />
+               </font>
+            </Button>
+            <AnchorPane layoutX="843.0" layoutY="11.0" prefHeight="30.0" prefWidth="2.0" style="-fx-background-color: #bababa;" AnchorPane.rightAnchor="100.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="228.0" layoutY="172.0" prefHeight="350.0" prefWidth="478.0" style="-fx-background-color: #F5F5F5;">
+         <children>
+            <Label layoutX="90.0" layoutY="20.0" text="BORROW ITEM" textFill="#bababa">
+               <font>
+                  <Font name="Century Gothic Bold" size="36.0" />
+               </font>
+            </Label>
+            <Label layoutX="78.0" layoutY="129.0" text="Username">
+               <font>
+                  <Font name="Century Gothic" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtUsername" disable="true" layoutX="170.0" layoutY="125.0" prefHeight="25.0" prefWidth="184.0">
+               <font>
+                  <Font name="Century Gothic" size="13.0" />
+               </font>
+            </TextField>
+            <Label layoutX="78.0" layoutY="165.0" text="Item">
+               <font>
+                  <Font name="Century Gothic" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="78.0" layoutY="204.0" text="Total">
+               <font>
+                  <Font name="Century Gothic" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtJml" layoutX="170.0" layoutY="200.0" prefHeight="25.0" prefWidth="184.0">
+               <font>
+                  <Font name="Century Gothic" size="13.0" />
+               </font>
+            </TextField>
+            <ComboBox fx:id="cmbBarang" layoutX="170.0" layoutY="161.0" prefHeight="25.0" prefWidth="184.0" />
+            <Button fx:id="btnPinjam" layoutX="170.0" layoutY="277.0" mnemonicParsing="false" onAction="#pinjamBarang" prefHeight="25.0" prefWidth="184.0" style="-fx-background-color: #17ca9a;" text="BORROW" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic Bold" size="14.0" />
+               </font>
+            </Button>
+            <Icons525View fill="#17ca9a" glyphName="SHARE2" layoutX="31.0" layoutY="63.0" size="45" wrappingWidth="46.000001952052116" />
+            <Line endX="329.0" layoutX="124.0" layoutY="80.0" startX="-100.0" stroke="#bababa" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
