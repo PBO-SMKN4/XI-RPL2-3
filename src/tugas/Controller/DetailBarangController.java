@@ -5,14 +5,20 @@
  */
 package tugas.Controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
@@ -24,7 +30,6 @@ import tugas.Main;
 import tugas.Controller.GudangAdminController;
 import tugas.help.DateUtil;
 import tugas.model.tblGudangModel;
-
 /**
  * FXML Controller class
  *
@@ -65,6 +70,7 @@ public class DetailBarangController implements Initializable  {
     private Stage detailStage;
     private tblGudangModel gudang;
     private boolean okClicked = false;
+    private GudangAdminController table;
     
     public void setDetailStage(Stage detailStage){
         this.detailStage = detailStage;
@@ -136,5 +142,21 @@ public class DetailBarangController implements Initializable  {
 
 	    	 Main.getPrimaryStage().setIconified(true);
 	  }  
+
+    @FXML
+    private void back(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/tugas/View/v_gudangAdmin.fxml"));
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        stage.setScene(new Scene(root));
+    }
+
+    @FXML
+    private void edit(MouseEvent event) throws IOException {
+        
+     
+        
+      
+    }
     
 }

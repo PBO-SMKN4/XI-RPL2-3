@@ -231,17 +231,17 @@
                   <Font name="Century Gothic" size="15.0" />
                </font>
             </Label>
-            <Label fx:id="price" layoutX="468.0" layoutY="243.0" textFill="#bababa">
+            <Label fx:id="qty" layoutX="468.0" layoutY="243.0" textFill="#bababa">
                <font>
                   <Font name="Century Gothic" size="15.0" />
                </font>
             </Label>
-            <Label fx:id="qty" layoutX="467.0" layoutY="210.0" textFill="#bababa">
+            <Label fx:id="date" layoutX="467.0" layoutY="210.0" textFill="#bababa">
                <font>
                   <Font name="Century Gothic" size="15.0" />
                </font>
             </Label>
-            <Label fx:id="date" layoutX="467.0" layoutY="179.0" textFill="#bababa">
+            <Label fx:id="jenis" layoutX="467.0" layoutY="179.0" textFill="#bababa">
                <font>
                   <Font name="Century Gothic" size="15.0" />
                </font>
@@ -256,27 +256,27 @@
                   <Font name="Century Gothic" size="15.0" />
                </font>
             </Label>
-            <Label fx:id="uom" layoutX="467.0" layoutY="274.0" textFill="#bababa">
+            <Label fx:id="price" layoutX="467.0" layoutY="274.0" textFill="#bababa">
                <font>
                   <Font name="Century Gothic" size="15.0" />
                </font>
             </Label>
-            <Label fx:id="condition" layoutX="467.0" layoutY="305.0" textFill="#bababa">
+            <Label fx:id="uom" layoutX="467.0" layoutY="305.0" textFill="#bababa">
                <font>
                   <Font name="Century Gothic" size="15.0" />
                </font>
             </Label>
-            <Label fx:id="location" layoutX="468.0" layoutY="336.0" textFill="#bababa">
+            <Label fx:id="condition" layoutX="468.0" layoutY="336.0" textFill="#bababa">
                <font>
                   <Font name="Century Gothic" size="15.0" />
                </font>
             </Label>
-            <Button layoutX="22.0" layoutY="483.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="71.0" style="-fx-background-color: #bababa;" text="BACK" textFill="WHITE">
+            <Button layoutX="22.0" layoutY="483.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="28.0" prefWidth="71.0" style="-fx-background-color: #bababa;" text="BACK" textFill="WHITE">
                <font>
                   <Font name="Century Gothic Bold" size="14.0" />
                </font>
             </Button>
-            <Button layoutX="102.0" layoutY="483.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="71.0" style="-fx-background-color: #17ca9a;" text="EDIT" textFill="WHITE">
+            <Button layoutX="102.0" layoutY="483.0" mnemonicParsing="false" onMouseClicked="#edit" prefHeight="28.0" prefWidth="71.0" style="-fx-background-color: #17ca9a;" text="EDIT" textFill="WHITE">
                <font>
                   <Font name="Century Gothic Bold" size="14.0" />
                </font>
@@ -287,6 +287,11 @@
                </font>
             </Label>
             <Label layoutX="436.0" layoutY="174.0" text=":" textFill="#bababa">
+               <font>
+                  <Font name="Century Gothic Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="location" layoutX="458.0" layoutY="361.0" textFill="#bababa">
                <font>
                   <Font name="Century Gothic Bold" size="16.0" />
                </font>

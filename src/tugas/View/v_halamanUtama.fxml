@@ -50,7 +50,7 @@
       </AnchorPane>
       <AnchorPane layoutX="5.0" layoutY="78.0" prefHeight="552.0" prefWidth="259.0">
          <children>
-            <Button alignment="BASELINE_LEFT" layoutX="1.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="259.0" style="-fx-background-color: #f3fcfb;" styleClass="dasboard" text="Dashboard" textFill="#bababa">
+            <Button alignment="BASELINE_LEFT" layoutX="1.0" mnemonicParsing="false" onMouseClicked="#btnDashboard" prefHeight="68.0" prefWidth="259.0" style="-fx-background-color: #f3fcfb;" styleClass="dasboard" text="Dashboard" textFill="#bababa">
                <font>
                   <Font name="Century Gothic Bold" size="14.0" />
                </font>

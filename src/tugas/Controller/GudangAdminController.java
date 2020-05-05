@@ -8,16 +8,21 @@ package tugas.Controller;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Map;
+import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.function.Predicate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -29,14 +34,17 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
@@ -46,6 +54,7 @@ import tugas.model.tblGudangModel;
 import tugas.Main;
 import tugas.help.DBConnect;
 import tugas.help.DateUtil;
+import tugas.model.tblUserModel;
 
 /**
  * FXML Controller class
@@ -85,7 +94,8 @@ public class GudangAdminController implements Initializable {
     private TableColumn<tblGudangModel, Double> col_total;
     @FXML
     private TableColumn col_action;
-    
+    @FXML
+    private TextField inpsearch;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -98,17 +108,16 @@ public class GudangAdminController implements Initializable {
         myCircle.setFill(new ImagePattern(img1));
 
     }
-   
-  
+
     private void populateTableView() {
-       
+
         try {
             list = FXCollections.observableArrayList();
 
             String query = "SELECT * FROM t_assets";
             connection = DBConnect.getKoneksi("localhost", "3306", "root", "", "db_sma");
             ResultSet rs = connection.createStatement().executeQuery(query);
- 
+
             while (rs.next()) {
 
                 tblGudangModel model = new tblGudangModel();
@@ -142,25 +151,54 @@ public class GudangAdminController implements Initializable {
             Callback<TableColumn<tblGudangModel, String>, TableCell<tblGudangModel, String>> cellFactory = (param) -> {
                 final TableCell<tblGudangModel, String> cell = new TableCell<tblGudangModel, String>() {
 
+                    private final Button edit = new Button("EDIT");
+                    private final Button detail = new Button("Detail");
+                    private final Button delete = new Button("Delete");
+                    private final HBox pane = new HBox(edit, detail, delete);
+
+                    {
+                        edit.setOnAction((ActionEvent event) -> {
+                            tblGudangModel model = table_gudang.getSelectionModel().getSelectedItem();
+                            if (model != null) {
+                                boolean okClicked = Main.showEditDetails(model);
+                            } else {
+                                System.out.println("Jai");
+                            }
+                        });
+
+                        detail.setOnAction((ActionEvent event) -> {
+                            //tblGudangModel model = getTableView().getItems().get(getIndex());
+                            tblGudangModel model = table_gudang.getSelectionModel().getSelectedItem();
+                            if (model != null) {
+                                boolean okClicked = Main.showBarangDetails(model);
+                            }
+
+                        });
+
+                        delete.setOnAction((ActionEvent event) -> {
+                            try {
+                                tblGudangModel model = getTableView().getItems().get(getIndex());
+                                String query2 = "delete from t_transaksi where id_asset = ?";
+                                PreparedStatement pst2 = connection.prepareStatement(query2);
+                                pst2.setString(1, model.getIdAsset());
+                                pst2.executeUpdate();
+
+                                String query = "delete from t_assets where id_asset = ?";
+                                PreparedStatement pst = connection.prepareStatement(query);
+                                pst.setString(1, model.getIdAsset());
+                                pst.executeUpdate();
+
+                            } catch (SQLException ex) {
+                                Logger.getLogger(DataUserController.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        });
+                    }
+
                     @Override
                     public void updateItem(String item, boolean empty) {
                         super.updateItem(item, empty);
 
-                        if (empty) {
-                            setGraphic(null);
-                            setText(null);
-                        } else {
-                            final Button edit = new Button("Detail");
-                            edit.setOnAction(event -> {
-                                tblGudangModel model = table_gudang.getSelectionModel().getSelectedItem();
-                                if (model != null){
-                                    boolean okClicked = Main.showBarangDetails(model);   
-                                } 
-
-                            });
-                            setGraphic(edit);
-                            setText(null);
-                        }
+                        setGraphic(empty ? null : pane);
                     }
 
                 };
@@ -175,8 +213,48 @@ public class GudangAdminController implements Initializable {
         } catch (SQLException ex) {
             Logger.getLogger(GudangAdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+        FilteredList<tblGudangModel> filteredData = new FilteredList<>(list, e -> true);
+        inpsearch.setOnKeyReleased(e -> {
+            inpsearch.textProperty().addListener((observableValue, oldValue, newValue) -> {
+                filteredData.setPredicate((Predicate<? super tblGudangModel>) gudang -> {
+                    if (newValue == null || newValue.isEmpty()) {
+                        return true;
+                    }
+                    String lowerCaseFilter = newValue.toLowerCase();
+                    if (gudang.getNama_barang().toLowerCase().contains(lowerCaseFilter)) {
+                        return true;
+                    } else if (gudang.getIdAsset().toLowerCase().contains(lowerCaseFilter)) {
+                        return true;
+                    } else if (gudang.getBrand().toLowerCase().contains(lowerCaseFilter)) {
+                        return true;
+                    } else if (gudang.getCategory().toLowerCase().contains(lowerCaseFilter)) {
+                        return true;
+                    } else if (gudang.getJenis().toLowerCase().contains(lowerCaseFilter)) {
+                        return true;
+                    } else if (gudang.getTanggal_terima().toString().contains(lowerCaseFilter)) {
+                        return true;
+                    } else if (String.valueOf(gudang.getQty()).toLowerCase().contains(lowerCaseFilter)) {
+                        return true;
+                    } else if (String.valueOf(gudang.getPrice()).toLowerCase().contains(lowerCaseFilter)) {
+                        return true;
+                    } else if (String.valueOf(gudang.getTotal()).toLowerCase().contains(lowerCaseFilter)) {
+                        return true;
+                    }
+                    return false;
+
+                });
+            });
+        });
+        SortedList<tblGudangModel> sortedData = new SortedList<>(filteredData);
+        sortedData.comparatorProperty().bind(table_gudang.comparatorProperty());
+        table_gudang.setItems(sortedData);
+
     }
-    @FXML
+
+    
+            
+
     void moveAnchorPane() {
         anchorPane.setOnMousePressed(event -> {
             xOffset = Main.getPrimaryStage().getX() - event.getScreenX();
@@ -218,6 +296,81 @@ public class GudangAdminController implements Initializable {
         Stage stage = (Stage) node.getScene().getWindow();
 
         stage.setScene(new Scene(root));
+    }
+    
+        @FXML
+    void btnUser(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/tugas/View/v_dataUser.fxml"));
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        stage.setScene(new Scene(root));
+    }
+
+    @FXML
+    void btnReturn(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/tugas/View/v_pengembalian.fxml"));
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        stage.setScene(new Scene(root));
+    }
+
+    @FXML
+    void btnBorrow(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/tugas/View/v_dataPeminjaman.fxml"));
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        stage.setScene(new Scene(root));
+    }
+
+    @FXML
+    void gudang(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/tugas/View/v_gudangAdmin.fxml"));
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        stage.setScene(new Scene(root));
+    }
+
+    @FXML
+    void btnReport(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/tugas/View/v_report.fxml"));
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        stage.setScene(new Scene(root));
+    }
+
+    @FXML
+    void btnPlanning(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/tugas/View/v_planning.fxml"));
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        stage.setScene(new Scene(root));
+    }
+    
+    @FXML
+    void exit(MouseEvent event) throws IOException {
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation Dialog");
+        alert.setHeaderText("Look, a Confirmation Dialog");
+        alert.setContentText("Are you ok with this?");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK) {
+            System.out.println("Logout");
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("/tugas/View/v_Login.fxml"));
+                Node node = (Node) event.getSource();
+                Stage stage = (Stage) node.getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.setMaximized(false);
+                stage.centerOnScreen();
+
+            } catch (IOException ex) {
+                Logger.getLogger(HalamanUtamaController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            //action
+        }
     }
 
 }

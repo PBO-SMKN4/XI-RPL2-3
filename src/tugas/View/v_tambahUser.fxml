@@ -170,7 +170,7 @@
                   <TextField fx:id="inpNis" prefHeight="30.0" prefWidth="329.0" GridPane.columnIndex="1" />
                   <TextField fx:id="inpUsername" prefHeight="30.0" prefWidth="329.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <TextField fx:id="inpFullname" prefHeight="30.0" prefWidth="329.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <ComboBox prefHeight="25.0" prefWidth="360.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <ComboBox fx:id="cmb_kelas" prefHeight="25.0" prefWidth="360.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <TextField fx:id="inpEmail" prefHeight="30.0" prefWidth="329.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                   <PasswordField fx:id="inpPassword" prefHeight="30.0" prefWidth="329.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                </children>

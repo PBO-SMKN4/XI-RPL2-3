@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Screen;
 import tugas.Controller.DetailBarangController;
+import tugas.Controller.EditBarangController;
 import tugas.Controller.EditProfilUserController;
 import tugas.model.tblGudangModel;
 import tugas.model.tblUserModel;
@@ -42,6 +43,31 @@ public class Main extends Application {
 
     public static Stage getPrimaryStage() {
         return primaryStageObj;
+    }
+    
+    public static boolean showEditDetails(tblGudangModel gudang){
+        try{
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("/tugas/View/v_editBarang.fxml"));
+            AnchorPane page = (AnchorPane) loader.load();
+            
+            Stage detailsStage = new Stage();
+            Scene scene = new Scene(page);
+           detailsStage.setScene(scene);
+            
+            EditBarangController controller = loader.getController();
+            controller.setDetailStage(scene);
+            controller.setDetail(gudang);
+            
+            detailsStage.showAndWait();
+            
+            return controller.isOkClicked();
+            
+        }
+        catch(IOException e){
+            e.printStackTrace();
+            return false;
+        }
     }
     
     public static boolean showBarangDetails(tblGudangModel gudang){

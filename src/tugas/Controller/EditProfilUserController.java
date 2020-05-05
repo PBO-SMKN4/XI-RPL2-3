@@ -5,9 +5,18 @@
  */
 package tugas.Controller;
 
+import com.jfoenix.controls.JFXComboBox;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -21,6 +30,7 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import tugas.Main;
+import tugas.help.DBConnect;
 import tugas.help.DateUtil;
 import tugas.model.tblUserModel;
 
@@ -41,14 +51,19 @@ public class EditProfilUserController implements Initializable {
     private double yOffset;
     @FXML
     private TextField tf_nis;
-    @FXML
-    private TextField tf_kelas;
+   
     @FXML
     private TextField tf_email;
     @FXML
     private TextField tf_username;
     @FXML
     private TextField tf_fullname;
+    @FXML
+    private JFXComboBox<String> cmb_kelas;
+    
+    Connection connection;
+    
+    private final ObservableList<String> list = FXCollections.observableArrayList();
 
     /**
      * Initializes the controller class.
@@ -57,6 +72,7 @@ public class EditProfilUserController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         this.moveAnchorPane();
+        fillComboBox();
         
         myCircle.setStroke(Color.WHITE);
         Image img1 = new Image("/tugas/css/profil.jpg", false);
@@ -78,12 +94,30 @@ public class EditProfilUserController implements Initializable {
         tf_fullname.setText(user.getFullname());
         tf_username.setText(user.getUsername());
         tf_email.setText(user.getEmail());
-        tf_kelas.setText(user.getKelas());
+        cmb_kelas.setValue(user.getKelas());
+      
         
     }
     
     public boolean isOkClicked() {
         return okClicked;
+    }
+    
+    public void fillComboBox() {
+        try {
+            connection = DBConnect.getKoneksi("localhost", "3306", "root", "", "db_sma");
+            String query = "SELECT * from t_kelas";
+
+            PreparedStatement pst = connection.prepareStatement(query);
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+                list.add(rs.getString("id_kelas"));    
+            }
+             cmb_kelas.setItems(list);
+        } catch (SQLException ex) {
+            Logger.getLogger(TambahUserController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public void moveAnchorPane() {
@@ -119,17 +153,31 @@ public class EditProfilUserController implements Initializable {
 
     @FXML
     private void save(MouseEvent event) {
-        String nis = tf_nis.getText();
-        String fullname = tf_fullname.getText();
-        String username = tf_username.getText();
-        String email = tf_email.getText();
-        String kelas = tf_kelas.getText();
-        
-//        Statement statement = connection.createStatement();
-//        
-//        String query = "UPDATE t_data_diri SET username = '"+ real_password +"' WHERE username = '"+ username +"'";
-//
-//            int status = statement.executeUpdate(query);
+        try {
+            String nis = tf_nis.getText();
+            String fullname = tf_fullname.getText();
+            String username = tf_username.getText();
+            String email = tf_email.getText();
+            String kelas = cmb_kelas.getValue();
+            
+            
+            
+            Statement statement = connection.createStatement();
+            
+            String query = "UPDATE t_data_diri SET id_kelas = '"+ kelas +"' WHERE username = '"+ username +"'";
+            String query2 = "UPDATE t_login SET fullname = '"+ fullname +"',email = '"+ email +"' WHERE username = '"+ username +"'";
+            System.out.println(query);
+            int status2 = statement.executeUpdate(query2);
+            int status = statement.executeUpdate(query);
+            if(status == 1 && status2 == 1){
+                System.out.println("Edit");
+            }
+            
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(EditProfilUserController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
