@@ -41,10 +41,14 @@ import tugas.model.tblUserModel;
  */
 public class EditProfilUserController implements Initializable {
 
+    
+    Connection connection;
+    
+    private final ObservableList<String> list = FXCollections.observableArrayList();
+    
     @FXML
     private AnchorPane anchorPane;
     
-    @FXML
     private Circle myCircle;
     
     private double xOffset;
@@ -61,9 +65,7 @@ public class EditProfilUserController implements Initializable {
     @FXML
     private JFXComboBox<String> cmb_kelas;
     
-    Connection connection;
     
-    private final ObservableList<String> list = FXCollections.observableArrayList();
 
     /**
      * Initializes the controller class.
@@ -73,10 +75,6 @@ public class EditProfilUserController implements Initializable {
         // TODO
         this.moveAnchorPane();
         fillComboBox();
-        
-        myCircle.setStroke(Color.WHITE);
-        Image img1 = new Image("/tugas/css/profil.jpg", false);
-        myCircle.setFill(new ImagePattern(img1));
     }
     
     private Stage detailStage;
@@ -179,6 +177,8 @@ public class EditProfilUserController implements Initializable {
             Logger.getLogger(EditProfilUserController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+ 
 
     @FXML
     private void back(MouseEvent event) {

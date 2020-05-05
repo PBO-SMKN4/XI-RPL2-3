@@ -121,7 +121,7 @@ public class LoginController implements Initializable {
                 
                 
                 if(role.equals("admin")){
-                    Parent root =   FXMLLoader.load(getClass().getResource("/tugas/View/v_halamanUtama.fxml"));
+                    Parent root = FXMLLoader.load(getClass().getResource("/tugas/View/v_halamanUtama.fxml"));
                     Node node = (Node) event.getSource();
                     Stage stage = (Stage) node.getScene().getWindow();
                     stage.setScene(new Scene(root));

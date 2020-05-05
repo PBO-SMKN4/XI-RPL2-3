@@ -4,6 +4,7 @@ import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.Node;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.scene.Parent;
@@ -52,6 +53,7 @@ public class Main extends Application {
             AnchorPane page = (AnchorPane) loader.load();
             
             Stage detailsStage = new Stage();
+            detailsStage.setFullScreen(true);
             Scene scene = new Scene(page);
            detailsStage.setScene(scene);
             
@@ -99,9 +101,11 @@ public class Main extends Application {
         try{
         FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("/tugas/View/v_editProfilUser.fxml"));
+            
             AnchorPane page = (AnchorPane) loader.load();
             
             Stage detailsStage = new Stage();
+
             Scene scene = new Scene(page);
            detailsStage.setScene(scene);
             

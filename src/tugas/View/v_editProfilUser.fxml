@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import de.jensd.fx.glyphs.icons525.Icons525View?>
 <?import java.net.URL?>
@@ -108,11 +109,6 @@
                   <Font name="Century Gothic" size="14.0" />
                </font>
             </TextField>
-            <TextField fx:id="tf_kelas" layoutX="406.0" layoutY="231.0" prefHeight="28.0" prefWidth="251.0">
-               <font>
-                  <Font name="Century Gothic" size="14.0" />
-               </font>
-            </TextField>
             <TextField fx:id="tf_email" layoutX="406.0" layoutY="195.0" prefHeight="28.0" prefWidth="251.0">
                <font>
                   <Font name="Century Gothic" size="14.0" />
@@ -133,6 +129,7 @@
                   <Font name="Century Gothic Bold" size="14.0" />
                </font>
             </Button>
+            <JFXComboBox fx:id="cmb_kelas" layoutX="406.0" layoutY="233.0" prefHeight="25.0" prefWidth="251.0" />
          </children>
       </AnchorPane>
       <AnchorPane layoutY="30.0" prefHeight="50.0" prefWidth="945.0" style="-fx-background-color: white;">

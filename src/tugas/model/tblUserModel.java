@@ -15,15 +15,15 @@ import javafx.beans.property.StringProperty;
  * @author Fadillah
  */
 public class tblUserModel {
-    private final IntegerProperty no;
+
     private final StringProperty nis;
     private final StringProperty username;
     private final StringProperty fullname;
     private final StringProperty kelas;
     private final StringProperty email;
 
-    public tblUserModel(Integer no, String nis,String username, String fullname, String kelas, String email) {
-        this.no = new SimpleIntegerProperty(no);
+    public tblUserModel( String nis, String username, String fullname, String kelas, String email) {
+
         this.nis = new SimpleStringProperty(nis);
         this.username = new SimpleStringProperty(username);
         this.fullname = new SimpleStringProperty(fullname);
@@ -33,7 +33,7 @@ public class tblUserModel {
     }
 
     public tblUserModel() {
-        this(Integer.SIZE,null,null, null, null, null);
+        this( null, null, null, null, null);
     }
 
     public final String getNis() {
@@ -47,22 +47,6 @@ public class tblUserModel {
     public StringProperty nisProperty() {
         return nis;
     }
-    
-    
-
-    public final int getNo() {
-        return no.get();
-    }
-
-    public final void setNo(int value) {
-        no.set(value);
-    }
-
-    public IntegerProperty noProperty() {
-        return no;
-    }
-    
-    
 
     public final String getUsername() {
         return username.get();

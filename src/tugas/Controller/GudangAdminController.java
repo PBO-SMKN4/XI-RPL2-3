@@ -172,6 +172,8 @@ public class GudangAdminController implements Initializable {
                             if (model != null) {
                                 boolean okClicked = Main.showBarangDetails(model);
                             }
+                            
+                           
 
                         });
 
@@ -332,7 +334,7 @@ public class GudangAdminController implements Initializable {
 
     @FXML
     void btnReport(MouseEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/tugas/View/v_report.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/tugas/View/v_reportAdmin.fxml"));
         Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
         stage.setScene(new Scene(root));
