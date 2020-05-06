@@ -6,7 +6,12 @@
 package tugas.Controller;
 
 import java.io.IOException;
+import java.math.BigInteger;
 import java.net.URL;
+import java.security.MessageDigest;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,6 +21,9 @@ import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -23,7 +31,10 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
+import javax.swing.JOptionPane;
 import tugas.Main;
+import tugas.help.DBConnect;
+import tugas.help.DateUtil;
 
 /**
  * FXML Controller class
@@ -39,6 +50,22 @@ public class TambahPlanningController implements Initializable {
 
     private double xOffset;
     private double yOffset;
+    @FXML
+    private TextField tf_id;
+    @FXML
+    private TextField tf_nama_item;
+    @FXML
+    private TextField tf_qty;
+    @FXML
+    private TextField tf_price;
+    @FXML
+    private TextArea ta_desc;
+    @FXML
+    private DatePicker da_planning_date;
+    @FXML
+    private DatePicker da_date_purchased;
+    
+    Connection connection;
 
     /**
      * Initializes the controller class.
@@ -86,6 +113,9 @@ public class TambahPlanningController implements Initializable {
     
     }
     
+    
+    
+    
         @FXML
     void btnUser(MouseEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/tugas/View/v_dataUser.fxml"));
@@ -110,7 +140,6 @@ public class TambahPlanningController implements Initializable {
         stage.setScene(new Scene(root));
     }
 
-    @FXML
     void gudang(MouseEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/tugas/View/v_gudangAdmin.fxml"));
         Node node = (Node) event.getSource();
@@ -129,6 +158,51 @@ public class TambahPlanningController implements Initializable {
     @FXML
     void btnPlanning(MouseEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/tugas/View/v_planning.fxml"));
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        stage.setScene(new Scene(root));
+    }
+
+    @FXML
+    private void save(MouseEvent event) throws IOException {
+        connection = DBConnect.getKoneksi("localhost", "3306", "root", "", "db_sma");
+
+        try {
+            String id = tf_id.getText();
+            String nama_item = tf_nama_item.getText();
+            int qty = Integer.parseInt(tf_qty.getText());
+            double price = Double.parseDouble(tf_price.getText());
+            String date_plan = DateUtil.format(da_planning_date.getValue());
+            String date_purch = DateUtil.format(da_date_purchased.getValue());
+            String desc = ta_desc.getText();
+
+       
+
+            Statement statement = connection.createStatement();
+
+            String query = "INSERT INTO t_planning(id_planning,nama_barang,qty,price,description,planning_date,date_purchased,status) "
+                    + "VALUES('" + id + "','" + nama_item + "','" + qty + "','" + price + "','"+ desc+"','"+ date_plan +"','"+ date_purch +"', 'not yet approved');";
+            int status = statement.executeUpdate(query);
+           
+
+            if (status > 0) {
+                JOptionPane.showMessageDialog(null, "Berhasil Ditambah!");
+                Parent root = FXMLLoader.load(getClass().getResource("/tugas/View/v_planning.fxml"));
+                Node node = (Node) event.getSource();
+                Stage stage = (Stage) node.getScene().getWindow();
+                stage.setScene(new Scene(root));
+            } else {
+                JOptionPane.showMessageDialog(null, "ID sudah terdaftar!");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+    }
+
+    @FXML
+    private void back(MouseEvent event) throws IOException {
+         Parent root = FXMLLoader.load(getClass().getResource("/tugas/View/v_planning.fxml"));
         Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
         stage.setScene(new Scene(root));

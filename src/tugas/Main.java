@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Screen;
+import tugas.Controller.DataUserController;
 import tugas.Controller.DetailBarangController;
 import tugas.Controller.EditBarangController;
 import tugas.Controller.EditProfilUserController;
@@ -112,7 +113,8 @@ public class Main extends Application {
             EditProfilUserController controller = loader.getController();
             controller.setDetailStage(detailsStage);
             controller.setEdit(user);
-          
+           
+            
             
             detailsStage.showAndWait();
             

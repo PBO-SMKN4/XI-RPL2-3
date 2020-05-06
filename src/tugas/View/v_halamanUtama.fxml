@@ -129,12 +129,12 @@
                         <Font name="Century Gothic Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="9.0" layoutY="45.0" text="12" textFill="WHITE">
+                  <Label fx:id="total_item" layoutX="9.0" layoutY="45.0" text="12" textFill="WHITE">
                      <font>
                         <Font name="Century Gothic Bold" size="48.0" />
                      </font>
                   </Label>
-                  <Button alignment="BASELINE_LEFT" layoutY="115.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="206.0" style="-fx-background-color: white; -fx-background-radius: 0px 0px 5px 5px; -fx-border-color: white; -fx-border-radius: 0px 0px 5px 5px;" text="Show Detail" textFill="#17ca9a">
+                  <Button alignment="BASELINE_LEFT" layoutY="115.0" mnemonicParsing="false" onMouseClicked="#show_item" prefHeight="37.0" prefWidth="206.0" style="-fx-background-color: white; -fx-background-radius: 0px 0px 5px 5px; -fx-border-color: white; -fx-border-radius: 0px 0px 5px 5px;" text="Show Detail" textFill="#17ca9a">
                      <font>
                         <Font name="Century Gothic Bold" size="18.0" />
                      </font>
@@ -152,12 +152,12 @@
                         <Font name="Century Gothic Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="9.0" layoutY="45.0" text="12" textFill="WHITE">
+                  <Label fx:id="total_return" layoutX="9.0" layoutY="45.0" text="12" textFill="WHITE">
                      <font>
                         <Font name="Century Gothic Bold" size="48.0" />
                      </font>
                   </Label>
-                  <Button alignment="BASELINE_LEFT" layoutY="115.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="206.0" style="-fx-background-color: white; -fx-background-radius: 0px 0px 5px 5px; -fx-border-color: white; -fx-border-radius: 0px 0px 5px 5px;" text="Show Detail" textFill="#17ca9a">
+                  <Button alignment="BASELINE_LEFT" layoutY="115.0" mnemonicParsing="false" onMouseClicked="#show_return" prefHeight="37.0" prefWidth="206.0" style="-fx-background-color: white; -fx-background-radius: 0px 0px 5px 5px; -fx-border-color: white; -fx-border-radius: 0px 0px 5px 5px;" text="Show Detail" textFill="#17ca9a">
                      <font>
                         <Font name="Century Gothic Bold" size="18.0" />
                      </font>
@@ -175,12 +175,12 @@
                         <Font name="Century Gothic Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="9.0" layoutY="45.0" text="12" textFill="WHITE">
+                  <Label fx:id="total_user" layoutX="9.0" layoutY="45.0" text="12" textFill="WHITE">
                      <font>
                         <Font name="Century Gothic Bold" size="48.0" />
                      </font>
                   </Label>
-                  <Button alignment="BASELINE_LEFT" layoutY="115.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="206.0" style="-fx-background-color: white; -fx-background-radius: 0px 0px 5px 5px; -fx-border-color: white; -fx-border-radius: 0px 0px 5px 5px;" text="Show Detail" textFill="#17ca9a">
+                  <Button alignment="BASELINE_LEFT" layoutY="115.0" mnemonicParsing="false" onMouseClicked="#show_user" prefHeight="37.0" prefWidth="206.0" style="-fx-background-color: white; -fx-background-radius: 0px 0px 5px 5px; -fx-border-color: white; -fx-border-radius: 0px 0px 5px 5px;" text="Show Detail" textFill="#17ca9a">
                      <font>
                         <Font name="Century Gothic Bold" size="18.0" />
                      </font>
@@ -198,12 +198,12 @@
                         <Font name="Century Gothic Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="9.0" layoutY="45.0" text="12" textFill="WHITE">
+                  <Label fx:id="total_borrow" layoutX="9.0" layoutY="45.0" text="12" textFill="WHITE">
                      <font>
                         <Font name="Century Gothic Bold" size="48.0" />
                      </font>
                   </Label>
-                  <Button alignment="BASELINE_LEFT" layoutY="115.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="206.0" style="-fx-background-color: white; -fx-background-radius: 0px 0px 5px 5px; -fx-border-color: white; -fx-border-radius: 0px 0px 5px 5px;" text="Show Detail" textFill="#17ca9a">
+                  <Button alignment="BASELINE_LEFT" layoutY="115.0" mnemonicParsing="false" onMouseClicked="#show_borrow" prefHeight="37.0" prefWidth="206.0" style="-fx-background-color: white; -fx-background-radius: 0px 0px 5px 5px; -fx-border-color: white; -fx-border-radius: 0px 0px 5px 5px;" text="Show Detail" textFill="#17ca9a">
                      <font>
                         <Font name="Century Gothic Bold" size="18.0" />
                      </font>
@@ -221,12 +221,12 @@
                         <Font name="Century Gothic Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="9.0" layoutY="45.0" text="12" textFill="WHITE">
+                  <Label fx:id="total_report" layoutX="9.0" layoutY="45.0" text="12" textFill="WHITE">
                      <font>
                         <Font name="Century Gothic Bold" size="48.0" />
                      </font>
                   </Label>
-                  <Button alignment="BASELINE_LEFT" layoutY="115.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="206.0" style="-fx-background-color: white; -fx-background-radius: 0px 0px 5px 5px; -fx-border-color: white; -fx-border-radius: 0px 0px 5px 5px;" text="Show Detail" textFill="#17ca9a">
+                  <Button alignment="BASELINE_LEFT" layoutY="115.0" mnemonicParsing="false" onMouseClicked="#show_report" prefHeight="37.0" prefWidth="206.0" style="-fx-background-color: white; -fx-background-radius: 0px 0px 5px 5px; -fx-border-color: white; -fx-border-radius: 0px 0px 5px 5px;" text="Show Detail" textFill="#17ca9a">
                      <font>
                         <Font name="Century Gothic Bold" size="18.0" />
                      </font>
@@ -244,12 +244,12 @@
                         <Font name="Century Gothic Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="9.0" layoutY="45.0" text="12" textFill="WHITE">
+                  <Label fx:id="total_planning" layoutX="9.0" layoutY="45.0" text="12" textFill="WHITE">
                      <font>
                         <Font name="Century Gothic Bold" size="48.0" />
                      </font>
                   </Label>
-                  <Button alignment="BASELINE_LEFT" layoutY="115.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="206.0" style="-fx-background-color: white; -fx-background-radius: 0px 0px 5px 5px; -fx-border-color: white; -fx-border-radius: 0px 0px 5px 5px;" text="Show Detail" textFill="#17ca9a">
+                  <Button alignment="BASELINE_LEFT" layoutY="115.0" mnemonicParsing="false" onMouseClicked="#show_planning" prefHeight="37.0" prefWidth="206.0" style="-fx-background-color: white; -fx-background-radius: 0px 0px 5px 5px; -fx-border-color: white; -fx-border-radius: 0px 0px 5px 5px;" text="Show Detail" textFill="#17ca9a">
                      <font>
                         <Font name="Century Gothic Bold" size="18.0" />
                      </font>

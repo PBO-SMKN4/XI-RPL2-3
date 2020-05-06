@@ -8,7 +8,6 @@
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Pagination?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -121,22 +120,22 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <TableView fx:id="table_gudang" prefHeight="417.0" prefWidth="778.0" stylesheets="@../../tugas.css/table.css" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+                  <TableView fx:id="table_planning" prefHeight="417.0" prefWidth="778.0" stylesheets="@../../tugas.css/table.css" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                      <columns>
                         <TableColumn fx:id="col_id" minWidth="-1.0" prefWidth="50.0" text="ID" />
                         <TableColumn fx:id="col_namaitem" minWidth="-Infinity" prefWidth="86.0" text="Name Item" />
-                        <TableColumn minWidth="-Infinity" prefWidth="48.0" text="QTY" />
-                        <TableColumn minWidth="-Infinity" prefWidth="65.0" text="Price" />
-                        <TableColumn minWidth="-Infinity" prefWidth="90.0" text="Description" />
-                        <TableColumn minWidth="-Infinity" prefWidth="113.0" text="Planning Date" />
-                        <TableColumn minWidth="-Infinity" prefWidth="113.0" text="Date Purchased" />
-                        <TableColumn minWidth="-Infinity" prefWidth="71.0" text="Status" />
-                        <TableColumn minWidth="-Infinity" prefWidth="86.0" text="Action" />
+                        <TableColumn fx:id="col_qty" minWidth="-Infinity" prefWidth="48.0" text="QTY" />
+                        <TableColumn fx:id="col_price" minWidth="-Infinity" prefWidth="65.0" text="Price" />
+                        <TableColumn fx:id="col_desc" minWidth="-Infinity" prefWidth="90.0" text="Description" />
+                        <TableColumn fx:id="col_planning_date" minWidth="-Infinity" prefWidth="113.0" text="Planning Date" />
+                        <TableColumn fx:id="col_date_purchased" minWidth="-Infinity" prefWidth="113.0" text="Date Purchased" />
+                        <TableColumn fx:id="col_status" minWidth="-Infinity" prefWidth="71.0" text="Status" />
+                        <TableColumn fx:id="col_action" minWidth="-Infinity" prefWidth="86.0" text="Action" />
                      </columns>
                   </TableView>
                </children>
             </GridPane>
-            <Button layoutX="19.0" layoutY="85.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="139.0" style="-fx-background-color: white; -fx-border-color: #17ca9a; -fx-border-radius: 3px;" text="Add Planning" textFill="#17ca9a">
+            <Button layoutX="19.0" layoutY="85.0" mnemonicParsing="false" onMouseClicked="#add_planning" prefHeight="36.0" prefWidth="139.0" style="-fx-background-color: white; -fx-border-color: #17ca9a; -fx-border-radius: 3px;" text="Add Planning" textFill="#17ca9a">
                <font>
                   <Font name="Century Gothic" size="13.0" />
                </font>
@@ -144,7 +143,6 @@
                   <FontAwesomeIconView fill="#17ca9a" glyphName="PLUS" size="20" wrappingWidth="22.714285850524902" />
                </graphic>
             </Button>
-            <Pagination layoutX="557.0" layoutY="482.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="56.0" prefWidth="186.0" />
             <TextField fx:id="inpsearch" layoutX="498.0" layoutY="87.0" prefHeight="36.0" prefWidth="207.0" promptText="Search" style="-fx-background-radius: 20px 0px 0px 20px; -fx-background-color: white; -fx-border-color: #17ca9a; -fx-border-radius: 20px 0px 0px 20px;">
                <font>
                   <Font name="Century Gothic" size="14.0" />

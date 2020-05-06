@@ -16,6 +16,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 import java.util.function.Predicate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -64,8 +69,6 @@ import tugas.model.tblUserModel;
  */
 public class DataUserController implements Initializable {
 
-    
-
     @FXML
     private AnchorPane anchorPane;
 
@@ -100,8 +103,17 @@ public class DataUserController implements Initializable {
         // TODO
 
         populateTableView();
-      
 
+//         int MINUTES = 1;
+////         Timer timer = new Timer();
+////         timer.schedule(new TimerTask() {
+////            @Override
+////            public void run() {
+////                TableRefesh();
+////                System.out.println("RUN");
+////            }
+////        }, 0, 1000 * 60 * MINUTES);
+//
         this.moveAnchorPane();
 
         myCircle.setStroke(Color.WHITE);
@@ -109,8 +121,6 @@ public class DataUserController implements Initializable {
         myCircle.setFill(new ImagePattern(img1));
 
     }
-
- 
 
     private void populateTableView() {
 
@@ -123,11 +133,10 @@ public class DataUserController implements Initializable {
             connection = DBConnect.getKoneksi("localhost", "3306", "root", "", "db_sma");
             ResultSet rs = connection.createStatement().executeQuery(query);
 
-            
             while (rs.next()) {
 
                 tblUserModel model = new tblUserModel();
-                
+
                 model.setNis(rs.getString("nis"));
                 model.setUsername(rs.getString("username"));
                 model.setFullname(rs.getString("fullname"));
@@ -173,6 +182,7 @@ public class DataUserController implements Initializable {
                             tblUserModel model = table.getSelectionModel().getSelectedItem();
                             if (model != null) {
                                 boolean okClicked = Main.showEditDataUser(model);
+
                             }
 
                         });
@@ -197,34 +207,36 @@ public class DataUserController implements Initializable {
         } catch (SQLException ex) {
             Logger.getLogger(GudangAdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         FilteredList<tblUserModel> filteredData = new FilteredList<>(list, e -> true);
-        inpSearch.setOnKeyReleased(e ->{
+        inpSearch.setOnKeyReleased(e -> {
             inpSearch.textProperty().addListener((observableValue, oldValue, newValue) -> {
-                filteredData.setPredicate((Predicate<? super tblUserModel>) user ->{
-                    if(newValue == null || newValue.isEmpty()){
+                filteredData.setPredicate((Predicate<? super tblUserModel>) user -> {
+                    if (newValue == null || newValue.isEmpty()) {
                         return true;
                     }
-                    String lowerCaseFilter =  newValue.toLowerCase();
-                    if(user.getUsername().contains(newValue)){
+                    String lowerCaseFilter = newValue.toLowerCase();
+                    if (user.getUsername().contains(newValue)) {
                         return true;
-                    }
-                    else if(user.getFullname().toLowerCase().contains(lowerCaseFilter)){
+                    } else if (user.getFullname().toLowerCase().contains(lowerCaseFilter)) {
                         return true;
-                    }
-                    else if(user.getNis().toLowerCase().contains(lowerCaseFilter)){
+                    } else if (user.getNis().toLowerCase().contains(lowerCaseFilter)) {
                         return true;
                     }
                     return false;
-                
+
                 });
             });
             SortedList<tblUserModel> sortedData = new SortedList<>(filteredData);
             sortedData.comparatorProperty().bind(table.comparatorProperty());
             table.setItems(sortedData);
-        
+
         });
 
+    }
+
+    public void TableRefesh() {
+        table.refresh();
     }
 
     @FXML
