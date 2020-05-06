@@ -145,7 +145,7 @@
                   <Font name="Century Gothic Bold" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="11.0" layoutY="256.0" text="Description" textFill="#bababa">
+            <Label layoutX="18.0" layoutY="256.0" text="Description" textFill="#bababa">
                <font>
                   <Font name="Century Gothic Bold" size="14.0" />
                </font>

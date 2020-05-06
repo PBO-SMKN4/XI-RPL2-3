@@ -1,11 +1,178 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.icons525.Icons525View?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import de.jensd.fx.glyphs.materialicons.MaterialIconView?>
+<?import de.jensd.fx.glyphs.octicons.OctIconView?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tugas.Controller.PlanningController">
-    
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="629.0" prefWidth="1027.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tugas.Controller.PlanningController">
+   <children>
+      <Text fill="#05d39b" layoutX="69.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SYSTEM MANAGEMENT SCHOOL">
+         <font>
+            <Font name="Century Gothic Bold" size="17.0" />
+         </font>
+      </Text>
+      <AnchorPane layoutX="5.0" layoutY="78.0" prefHeight="552.0" prefWidth="259.0">
+         <children>
+            <Button alignment="BASELINE_LEFT" layoutX="1.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="259.0" style="-fx-background-color: white;" styleClass="side" text="Dashboard" textFill="#bababa">
+               <font>
+                  <Font name="Century Gothic Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="#17ca9a" glyphName="DASHBOARD" size="25" wrappingWidth="40.0" />
+               </graphic>
+            </Button>
+            <Button alignment="BASELINE_LEFT" layoutX="1.0" layoutY="68.0" mnemonicParsing="false" onMouseClicked="#btnUser" prefHeight="68.0" prefWidth="259.0" style="-fx-background-color: white;" styleClass="side" text="User" textFill="#bababa">
+               <font>
+                  <Font name="Century Gothic Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <MaterialDesignIconView fill="#17ca9a" glyphName="ACCOUNT" size="32" wrappingWidth="42.0" />
+               </graphic>
+            </Button>
+            <Button alignment="BASELINE_LEFT" layoutX="1.0" layoutY="136.0" mnemonicParsing="false" onMouseClicked="#btnReturn" prefHeight="68.0" prefWidth="259.0" style="-fx-background-color: white;" styleClass="side" text="Return" textFill="#bababa">
+               <font>
+                  <Font name="Century Gothic Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <MaterialIconView fill="#17ca9a" glyphName="MOVE_TO_INBOX" size="30" wrappingWidth="39.0" />
+               </graphic>
+            </Button>
+            <Button alignment="BASELINE_LEFT" layoutX="1.0" layoutY="204.0" mnemonicParsing="false" onMouseClicked="#btnBorrow" prefHeight="68.0" prefWidth="259.0" style="-fx-background-color: white;" styleClass="side" text="Borrow" textFill="#bababa">
+               <font>
+                  <Font name="Century Gothic Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <Icons525View fill="#17ca9a" glyphName="SHARE2" size="25" wrappingWidth="38.0" />
+               </graphic>
+            </Button>
+            <Button alignment="BASELINE_LEFT" layoutX="1.0" layoutY="272.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="259.0" style="-fx-background-color: white;" styleClass="side" text="Warehouse" textFill="#bababa">
+               <font>
+                  <Font name="Century Gothic Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <MaterialIconView fill="#17ca9a" glyphName="INBOX" size="30" wrappingWidth="36.0" />
+               </graphic>
+            </Button>
+            <Button alignment="BASELINE_LEFT" layoutX="1.0" layoutY="340.0" mnemonicParsing="false" onMouseClicked="#btnReport" prefHeight="68.0" prefWidth="259.0" style="-fx-font-weight: bold; -fx-background-color: white;" styleClass="side" text="Report" textFill="#bababa">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+               <graphic>
+                  <MaterialDesignIconView fill="#17ca9a" glyphName="ALERT_OCTAGON" size="30" text="" wrappingWidth="36.0" />
+               </graphic>
+            </Button>
+            <Button alignment="BASELINE_LEFT" layoutX="1.0" layoutY="408.0" mnemonicParsing="false" onMouseClicked="#btnPlanning" prefHeight="68.0" prefWidth="259.0" style="-fx-font-weight: bold; -fx-background-color: #f3fcfb;" styleClass="planning" text="Planning" textFill="#bababa">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="#17ca9a" glyphName="SEND_ALT" size="25" wrappingWidth="35.0" />
+               </graphic>
+            </Button>
+            <Button alignment="BASELINE_LEFT" layoutX="1.0" layoutY="478.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="259.0" style="-fx-background-color: white;" styleClass="side" text="Exit" textFill="#bababa">
+               <font>
+                  <Font name="Century Gothic Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <OctIconView fill="#17ca9a" glyphName="SIGN_OUT" size="27" wrappingWidth="37.0" />
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+      <FontAwesomeIconView fill="#17ca9a" glyphName="DROPBOX" layoutX="33.0" layoutY="67.0" size="30" />
+      <AnchorPane prefHeight="30.0" prefWidth="1027.0" style="-fx-background-color: #17ca9a;">
+         <children>
+            <Button contentDisplay="GRAPHIC_ONLY" layoutX="867.0" mnemonicParsing="false" onAction="#min" prefHeight="21.0" prefWidth="31.0" style="-fx-background-color: #17ca9a;" text="Button" textFill="#17ca9a00" AnchorPane.rightAnchor="46.0">
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="MINUS" size="20" />
+               </graphic>
+            </Button>
+            <Button contentDisplay="GRAPHIC_ONLY" layoutX="903.0" mnemonicParsing="false" onAction="#close" prefHeight="9.0" prefWidth="19.0" style="-fx-background-color: #17ca9a;" text="Button" AnchorPane.rightAnchor="10.0">
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="TIMES" size="20" />
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="265.0" layoutY="82.0" prefHeight="545.0" prefWidth="760.0" style="-fx-background-color: #f3fcfb;">
+         <children>
+            <GridPane layoutX="19.0" layoutY="129.0" prefHeight="353.0" prefWidth="724.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <TableView fx:id="table_gudang" prefHeight="417.0" prefWidth="778.0" stylesheets="@../../tugas.css/table.css" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+                     <columns>
+                        <TableColumn fx:id="col_id" minWidth="-1.0" prefWidth="50.0" text="ID" />
+                        <TableColumn fx:id="col_namaitem" minWidth="-Infinity" prefWidth="86.0" text="Name Item" />
+                        <TableColumn minWidth="-Infinity" prefWidth="48.0" text="QTY" />
+                        <TableColumn minWidth="-Infinity" prefWidth="65.0" text="Price" />
+                        <TableColumn minWidth="-Infinity" prefWidth="90.0" text="Description" />
+                        <TableColumn minWidth="-Infinity" prefWidth="113.0" text="Planning Date" />
+                        <TableColumn minWidth="-Infinity" prefWidth="113.0" text="Date Purchased" />
+                        <TableColumn minWidth="-Infinity" prefWidth="71.0" text="Status" />
+                        <TableColumn minWidth="-Infinity" prefWidth="86.0" text="Action" />
+                     </columns>
+                  </TableView>
+               </children>
+            </GridPane>
+            <Button layoutX="19.0" layoutY="85.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="139.0" style="-fx-background-color: white; -fx-border-color: #17ca9a; -fx-border-radius: 3px;" text="Add Planning" textFill="#17ca9a">
+               <font>
+                  <Font name="Century Gothic" size="13.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="#17ca9a" glyphName="PLUS" size="20" wrappingWidth="22.714285850524902" />
+               </graphic>
+            </Button>
+            <Pagination layoutX="557.0" layoutY="482.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="56.0" prefWidth="186.0" />
+            <TextField fx:id="inpsearch" layoutX="498.0" layoutY="87.0" prefHeight="36.0" prefWidth="207.0" promptText="Search" style="-fx-background-radius: 20px 0px 0px 20px; -fx-background-color: white; -fx-border-color: #17ca9a; -fx-border-radius: 20px 0px 0px 20px;">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </TextField>
+            <Button layoutX="705.0" layoutY="87.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="37.0" style="-fx-background-radius: 0px 20px 20px 0px; -fx-background-color: #17ca9a; -fx-border-color: none; -fx-border-radius: 0px 20px 20px 0px;">
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="SEARCH" size="20" wrappingWidth="18.571428298950195" />
+               </graphic>
+            </Button>
+            <Text fill="#bababa" layoutX="77.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PLANNING">
+               <font>
+                  <Font name="Century Gothic Bold" size="36.0" />
+               </font>
+            </Text>
+            <Line endX="617.0" endY="-1.52587890625E-5" layoutX="126.0" layoutY="64.0" startX="-106.0" startY="-1.52587890625E-5" stroke="#bababa" />
+            <FontAwesomeIconView fill="#17ca9a" glyphName="SEND_ALT" layoutX="30.0" layoutY="44.0" size="40" wrappingWidth="35.0" />
+         </children>
+      </AnchorPane>
+      <Circle fx:id="myCircle" fill="#17ca9a" layoutX="942.0" layoutY="56.0" radius="18.0" stroke="#bababa" strokeType="INSIDE" />
+      <Label layoutX="967.0" layoutY="47.0" text="ADMIN" textFill="#bababa">
+         <font>
+            <Font name="Century Gothic Bold" size="14.0" />
+         </font>
+      </Label>
+   </children>
+   <stylesheets>
+      <URL value="@../css/table.css" />
+      <URL value="@../css/v_planning.css" />
+   </stylesheets>
 </AnchorPane>

@@ -28,10 +28,9 @@ import tugas.Main;
 /**
  * FXML Controller class
  *
- * @author Fadillah
+ * @author asus
  */
-public class PlanningController implements Initializable {
-
+public class TambahPlanningController implements Initializable {
     @FXML
     private AnchorPane anchorPane;
     
@@ -40,19 +39,20 @@ public class PlanningController implements Initializable {
 
     private double xOffset;
     private double yOffset;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-         this.moveAnchorPane();
+        this.moveAnchorPane();
          
         myCircle.setStroke(Color.WHITE);
         Image img1 = new Image("/tugas/css/profil.jpg", false);
         myCircle.setFill(new ImagePattern(img1));
-    }
- public void moveAnchorPane()
+    }    
+    public void moveAnchorPane()
     {
 	anchorPane.setOnMousePressed(event -> {
             xOffset = Main.getPrimaryStage().getX() - event.getScreenX();
@@ -77,9 +77,8 @@ public class PlanningController implements Initializable {
     @FXML
     public void min(ActionEvent event) {
         Main.getPrimaryStage().setIconified(true);  
-    }        
-    
-     void btnDashboard(MouseEvent event) throws IOException{
+    } 
+    void btnDashboard(MouseEvent event) throws IOException{
             Parent root = FXMLLoader.load(getClass().getResource("/tugas/View/v_halamanUtama.fxml"));
             Node node = (Node) event.getSource();
             Stage stage = (Stage) node.getScene().getWindow();
@@ -134,5 +133,4 @@ public class PlanningController implements Initializable {
         Stage stage = (Stage) node.getScene().getWindow();
         stage.setScene(new Scene(root));
     }
-    
 }
