@@ -129,11 +129,21 @@
                   <Font name="Century Gothic" size="13.0" />
                </font>
             </TextField>
-            <ImageView fitHeight="376.0" fitWidth="341.0" layoutX="17.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="296.0" fitWidth="298.0" layoutX="44.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../css/email3.png" />
+                  <Image url="@../css/error.png" />
                </image>
             </ImageView>
+            <Text fill="#05d39b" layoutX="147.0" layoutY="311.0" strokeType="OUTSIDE" strokeWidth="0.0" text="OPPS.....">
+               <font>
+                  <Font name="Century Gothic Bold" size="28.0" />
+               </font>
+            </Text>
+            <Text fill="#bababa" layoutX="50.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Something broken in the stuff please report to us, let us know and fix it" wrappingWidth="302.794921875">
+               <font>
+                  <Font name="Century Gothic Bold" size="17.0" />
+               </font>
+            </Text>
          </children>
       </AnchorPane>
    </children>
