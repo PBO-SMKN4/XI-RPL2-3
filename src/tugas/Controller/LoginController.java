@@ -133,7 +133,6 @@ public class LoginController implements Initializable {
                     Main.getPrimaryStage().setWidth(bounds.getWidth());
                     Main.getPrimaryStage().setHeight(bounds.getHeight());
                     Main.getPrimaryStage().setMaximized(true);
-                    JOptionPane.showMessageDialog(null, "Login Berhasil!");
                     
                     //setFullScreen(true);
                     //setMaximized(boolean)
@@ -157,7 +156,6 @@ public class LoginController implements Initializable {
                     Main.getPrimaryStage().setWidth(bounds.getWidth());
                     Main.getPrimaryStage().setHeight(bounds.getHeight());
                     Main.getPrimaryStage().setMaximized(true);
-                    JOptionPane.showMessageDialog(null, "Login Berhasil!");
                     
                 }
             }

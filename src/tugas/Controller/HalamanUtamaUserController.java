@@ -39,16 +39,10 @@ import tugas.Main;
 public class HalamanUtamaUserController implements Initializable {
     @FXML
     private AnchorPane anchorPane;
-    
 
-	
     private double xOffset;
     private double yOffset;
-    @FXML
-    private Label lblName;
     
-    
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -73,6 +67,63 @@ public class HalamanUtamaUserController implements Initializable {
 //    }
     
     
+    @FXML
+    private void btnBorrow(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/tugas/View/v_pinjamBarang.fxml"));
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        stage.setScene(new Scene(root));
+    }
+    
+    @FXML
+    private void btnReturn(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/tugas/View/v_pengembalianUser.fxml"));
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        stage.setScene(new Scene(root));
+    }
+    
+    @FXML
+    private void btnReport(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/tugas/View/v_reportUser.fxml"));
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        stage.setScene(new Scene(root));
+    }
+
+    @FXML
+    private void btnWarehouse(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/tugas/View/v_gudangUser.fxml"));
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        stage.setScene(new Scene(root));
+    }
+    
+    @FXML
+    private void exit(MouseEvent event) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Exit?");
+        alert.setHeaderText("Look, a Confirmation Dialog");
+        alert.setContentText("Are you ok with this?");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK){
+            System.out.println("Logout");
+            try {
+                Parent root =   FXMLLoader.load(getClass().getResource("/tugas/View/v_Login.fxml"));        
+                Node node = (Node) event.getSource();
+                Stage stage = (Stage) node.getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.setMaximized(false);
+                stage.centerOnScreen();
+                
+            } catch (IOException ex) {
+                Logger.getLogger(HalamanUtamaController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
+
     public void moveAnchorPane()
     {
 	anchorPane.setOnMousePressed(event -> {
@@ -99,59 +150,11 @@ public class HalamanUtamaUserController implements Initializable {
     public void min(ActionEvent event) {
         Main.getPrimaryStage().setIconified(true);  
     }    
-    
-    @FXML
-    void btnProfile(MouseEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/tugas/View/v_profilUser.fxml"));
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        stage.setScene(new Scene(root));
-    }
-    
-    @FXML
-    private void btnReturn(MouseEvent event) {
-        System.out.println("Pengembalian User");
-    }
-
 
     @FXML
-    private void btnWarehouse(MouseEvent event) {
-        System.out.println("GUdang User");
+    private void btnHome(MouseEvent event) {
     }
 
-    
-
-    @FXML
-    private void btnBorrow(MouseEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/tugas/View/v_pinjamBarang.fxml"));
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        stage.setScene(new Scene(root));
-    }
-    
-    @FXML
-    private void exit(MouseEvent event) {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Confirmation Dialog");
-        alert.setHeaderText("Look, a Confirmation Dialog");
-        alert.setContentText("Are you ok with this?");
-
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == ButtonType.OK){
-            System.out.println("Logout");
-            try {
-                Parent root =   FXMLLoader.load(getClass().getResource("/tugas/View/v_Login.fxml"));        
-                Node node = (Node) event.getSource();
-                Stage stage = (Stage) node.getScene().getWindow();
-                stage.setScene(new Scene(root));
-                stage.setMaximized(false);
-                stage.centerOnScreen();
-                
-            } catch (IOException ex) {
-                Logger.getLogger(HalamanUtamaController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }
 
     
     

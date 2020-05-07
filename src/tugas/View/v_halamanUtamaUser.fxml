@@ -33,32 +33,32 @@
                   <Font name="Century Gothic Bold" size="18.0" />
                </font>
             </Text>
-            <Button alignment="BASELINE_LEFT" layoutX="860.0" layoutY="12.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="71.0" style="-fx-background-color: #17ca9a;" text="Logout" textFill="WHITE" AnchorPane.rightAnchor="14.0">
+            <Button alignment="BASELINE_LEFT" layoutX="427.0" layoutY="7.0" mnemonicParsing="false" onMouseClicked="#btnHome" prefHeight="36.0" prefWidth="71.0" style="-fx-background-color: white;" styleClass="dashboard" text="Home" textFill="#bababa" AnchorPane.rightAnchor="447.0">
                <font>
                   <Font name="Century Gothic Bold" size="15.0" />
                </font>
             </Button>
-            <Button alignment="BASELINE_LEFT" layoutX="502.0" layoutY="7.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="78.0" style="-fx-background-color: white;" styleClass="side" text="Borrow" textFill="#bababa" AnchorPane.rightAnchor="365.0">
+            <Button alignment="BASELINE_LEFT" layoutX="502.0" layoutY="7.0" mnemonicParsing="false" onMouseClicked="#btnBorrow" prefHeight="36.0" prefWidth="78.0" style="-fx-background-color: white;" styleClass="side" text="Borrow" textFill="#bababa" AnchorPane.rightAnchor="365.0">
                <font>
                   <Font name="Century Gothic Bold" size="15.0" />
                </font>
             </Button>
-            <Button alignment="BASELINE_LEFT" layoutX="427.0" layoutY="7.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="71.0" style="-fx-background-color: white;" styleClass="dashboard" text="Home" textFill="#bababa" AnchorPane.rightAnchor="447.0">
+            <Button alignment="BASELINE_LEFT" layoutX="580.0" layoutY="7.0" mnemonicParsing="false" onMouseClicked="#btnReturn" prefHeight="36.0" prefWidth="71.0" style="-fx-background-color: white;" styleClass="side" text="Return" textFill="#bababa" AnchorPane.rightAnchor="294.0">
                <font>
                   <Font name="Century Gothic Bold" size="15.0" />
                </font>
             </Button>
-            <Button alignment="BASELINE_LEFT" layoutX="580.0" layoutY="7.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="71.0" style="-fx-background-color: white;" styleClass="side" text="Return" textFill="#bababa" AnchorPane.rightAnchor="294.0">
+            <Button alignment="BASELINE_LEFT" layoutX="655.0" layoutY="6.0" mnemonicParsing="false" onMouseClicked="#btnReport" prefHeight="36.0" prefWidth="71.0" style="-fx-background-color: white;" styleClass="side" text="Report" textFill="#bababa" AnchorPane.rightAnchor="219.0">
                <font>
                   <Font name="Century Gothic Bold" size="15.0" />
                </font>
             </Button>
-            <Button alignment="BASELINE_LEFT" layoutX="655.0" layoutY="6.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="71.0" style="-fx-background-color: white;" styleClass="side" text="Report" textFill="#bababa" AnchorPane.rightAnchor="219.0">
+            <Button alignment="BASELINE_LEFT" layoutX="729.0" layoutY="7.0" mnemonicParsing="false" onMouseClicked="#btnWarehouse" prefHeight="36.0" prefWidth="106.0" style="-fx-background-color: white;" styleClass="side" text="Warehouse" textFill="#bababa" AnchorPane.rightAnchor="109.0">
                <font>
                   <Font name="Century Gothic Bold" size="15.0" />
                </font>
             </Button>
-            <Button alignment="BASELINE_LEFT" layoutX="729.0" layoutY="7.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="106.0" style="-fx-background-color: white;" styleClass="side" text="Warehouse" textFill="#bababa" AnchorPane.rightAnchor="109.0">
+            <Button alignment="BASELINE_LEFT" layoutX="860.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#exit" prefHeight="28.0" prefWidth="71.0" style="-fx-background-color: #17ca9a;" text="Logout" textFill="WHITE" AnchorPane.rightAnchor="14.0">
                <font>
                   <Font name="Century Gothic Bold" size="15.0" />
                </font>
