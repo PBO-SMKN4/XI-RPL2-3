@@ -7,19 +7,14 @@ package tugas.Controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
 
 /**
  * FXML Controller class
  *
  * @author asus
  */
-public class ForgetPassword implements Initializable {
-
-    @FXML
-    private Label label;
+public class ChangePasswordController implements Initializable {
 
     /**
      * Initializes the controller class.

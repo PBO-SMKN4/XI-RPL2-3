@@ -4,36 +4,76 @@
 <?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #00A6A3;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tugas.Controller.LoginController">
+<AnchorPane id="AnchorPane" prefHeight="401.0" prefWidth="736.0" style="-fx-background-color: #17ca9a;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tugas.Controller.LoginController">
     <children>
-      <AnchorPane layoutX="344.0" prefHeight="400.0" prefWidth="356.0" style="-fx-background-color: #efefef;">
+      <AnchorPane layoutX="370.0" prefHeight="400.0" prefWidth="366.0" style="-fx-background-color: white;">
          <children>
-            <Label alignment="CENTER" layoutX="112.0" layoutY="14.0" prefHeight="65.0" prefWidth="133.0" style="-fx-font-size: 30px;" text="Sign In" />
-            <Hyperlink layoutX="193.0" layoutY="212.0" text="Forget Password ?" />
-            <JFXTextField fx:id="tf_username" focusColor="#00a6a3" labelFloat="true" layoutX="57.0" layoutY="104.0" prefHeight="25.0" prefWidth="243.0" promptText="Username" />
-            <JFXPasswordField fx:id="pf_password" focusColor="#00a6a3" labelFloat="true" layoutX="57.0" layoutY="172.0" prefHeight="25.0" prefWidth="243.0" promptText="Password" />
-            <JFXButton layoutX="52.0" layoutY="274.0" prefHeight="32.0" prefWidth="243.0" style="-fx-background-color: #00A6A3;" text="LOGIN" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="122.0" layoutY="37.0" prefHeight="65.0" prefWidth="133.0" text="Sign In">
                <font>
-                  <Font size="14.0" />
-               </font></JFXButton>
-            <FontAwesomeIconView glyphName="USER" layoutX="34.0" layoutY="126.0" size="23" />
-            <FontAwesomeIconView glyphName="LOCK" layoutX="36.0" layoutY="196.0" size="25" />
+                  <Font name="Century Gothic Bold" size="30.0" />
+               </font>
+            </Label>
+            <Hyperlink focusTraversable="false" layoutX="212.0" layoutY="242.0" onMouseClicked="#forget" text="Forget Password ?" textFill="#111111" />
+            <HBox layoutX="49.0" layoutY="131.0" prefHeight="32.0" prefWidth="268.0" style="-fx-border-width: 0px 0px 2px 0px; -fx-border-color: black;">
+               <children>
+                  <MaterialDesignIconView glyphName="ACCOUNT_BOX_OUTLINE" size="27">
+                     <HBox.margin>
+                        <Insets left="2.0" right="5.0" />
+                     </HBox.margin>
+                  </MaterialDesignIconView>
+                  <JFXTextField fx:id="tf_username" focusColor="#17ca9a" labelFloat="true" prefHeight="31.0" prefWidth="288.0" promptText="Username" style="-fx-background-color: 0px 0px 0px 0px; -fx-background-color: rgba(0,0,0,0);" unFocusColor="TRANSPARENT">
+                     <font>
+                        <Font name="Century Gothic" size="13.0" />
+                     </font>
+                  </JFXTextField>
+               </children>
+            </HBox>
+            <HBox layoutX="49.0" layoutY="200.0" prefHeight="15.0" prefWidth="268.0" style="-fx-border-width: 0px 0px 2px 0px; -fx-border-color: black;">
+               <children>
+                  <MaterialDesignIconView glyphName="LOCK_OUTLINE" size="27">
+                     <HBox.margin>
+                        <Insets bottom="2.0" left="2.0" right="5.0" />
+                     </HBox.margin>
+                  </MaterialDesignIconView>
+                  <JFXPasswordField fx:id="pf_password" focusColor="#17ca9a" labelFloat="true" prefHeight="32.0" prefWidth="234.0" promptText="Password" unFocusColor="TRANSPARENT">
+                     <font>
+                        <Font name="Century Gothic" size="13.0" />
+                     </font>
+                  </JFXPasswordField>
+               </children>
+            </HBox>
+            <JFXButton layoutX="49.0" layoutY="307.0" onMouseClicked="#login" prefHeight="32.0" prefWidth="268.0" style="-fx-background-color: #17ca9a;" text="LOGIN" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <Button layoutX="-324.0" layoutY="307.0" mnemonicParsing="false" onMouseClicked="#sign_up" prefHeight="32.0" prefWidth="268.0" style="-fx-background-color: white; -fx-border-color: white; -fx-border-radius: 3px;" text="SIGN UP" textFill="#17ca9a">
+               <font>
+                  <Font name="Century Gothic Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button contentDisplay="GRAPHIC_ONLY" layoutX="328.0" layoutY="3.0" mnemonicParsing="false" prefHeight="9.0" prefWidth="31.0" style="-fx-background-color: white;" text="Button">
+               <graphic>
+                  <FontAwesomeIconView fill="#17ca9a" glyphName="TIMES" size="20" />
+               </graphic>
+            </Button>
          </children>
       </AnchorPane>
-      <Button layoutX="54.0" layoutY="278.0" mnemonicParsing="false" onMouseClicked="#sign_up" prefHeight="32.0" prefWidth="243.0" style="-fx-background-color: #00A6A3;" text="SIGN UP" textFill="WHITE">
-         <effect>
-            <DropShadow color="#00000069" />
-         </effect>
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Button>
+      <ImageView cache="true" fitHeight="297.0" fitWidth="288.0" layoutX="38.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../css/logo.jpeg" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>

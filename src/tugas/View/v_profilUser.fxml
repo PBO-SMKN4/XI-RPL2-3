@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="632.0" prefWidth="945.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tugas.Controller.ProfilUserController">
+   <children>
+      <AnchorPane layoutX="133.0" layoutY="151.0" prefHeight="369.0" prefWidth="680.0" style="-fx-background-color: #F5F5F5;" AnchorPane.bottomAnchor="112.0" AnchorPane.leftAnchor="133.0" AnchorPane.rightAnchor="132.0" AnchorPane.topAnchor="151.0">
+         <children>
+            <Text fill="#bababa" layoutX="87.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PROFIL">
+               <font>
+                  <Font name="Century Gothic Bold" size="36.0" />
+               </font>
+            </Text>
+            <Line endX="432.0" layoutX="230.0" layoutY="74.0" startX="-210.0" stroke="#bababa" />
+            <ImageView fx:id="imgUser" fitHeight="243.0" fitWidth="222.0" layoutX="19.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../css/profil.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="255.0" layoutY="125.0" text="Name" textFill="#bababa">
+               <font>
+                  <Font name="Century Gothic Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="256.0" layoutY="199.0" text="E-Mail" textFill="#bababa">
+               <font>
+                  <Font name="Century Gothic Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="255.0" layoutY="163.0" text="Username" textFill="#bababa">
+               <font>
+                  <Font name="Century Gothic Bold" size="16.0" />
+               </font>
+            </Label>
+            <Button layoutX="259.0" layoutY="282.0" mnemonicParsing="false" onMouseClicked="#btnEdit" prefHeight="28.0" prefWidth="71.0" style="-fx-background-color: #17ca9a;" text="EDIT" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="345.0" layoutY="282.0" mnemonicParsing="false" onMouseClicked="#btnChangePassword" prefHeight="28.0" prefWidth="163.0" style="-fx-background-color: #bababa;" text="CHANGE PASSWORD" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic Bold" size="14.0" />
+               </font>
+            </Button>
+            <Label layoutX="374.0" layoutY="85.0" text=":" textFill="#bababa">
+               <font>
+                  <Font name="Century Gothic Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="374.0" layoutY="125.0" text=":" textFill="#bababa">
+               <font>
+                  <Font name="Century Gothic Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="375.0" layoutY="163.0" text=":" textFill="#bababa">
+               <font>
+                  <Font name="Century Gothic Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblNis" layoutX="405.0" layoutY="86.0" text="NIS" textFill="#bababa">
+               <font>
+                  <Font name="Century Gothic" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblUsename" layoutX="406.0" layoutY="165.0" text="Username" textFill="#bababa">
+               <font>
+                  <Font name="Century Gothic" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblName" layoutX="405.0" layoutY="127.0" text="Name" textFill="#bababa">
+               <font>
+                  <Font name="Century Gothic" size="15.0" />
+               </font>
+            </Label>
+            <MaterialDesignIconView fill="#17ca9a" glyphName="ACCOUNT_CARD_DETAILS" layoutX="28.0" layoutY="58.0" size="50" />
+            <Label layoutX="256.0" layoutY="88.0" text="NIS" textFill="#bababa">
+               <font>
+                  <Font name="Century Gothic Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="257.0" layoutY="235.0" text="Class" textFill="#bababa">
+               <font>
+                  <Font name="Century Gothic Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="374.0" layoutY="234.0" text=":" textFill="#bababa">
+               <font>
+                  <Font name="Century Gothic Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="374.0" layoutY="198.0" text=":" textFill="#bababa">
+               <font>
+                  <Font name="Century Gothic Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblEmail" layoutX="406.0" layoutY="200.0" text="E-Mail" textFill="#bababa">
+               <font>
+                  <Font name="Century Gothic" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblClass" layoutX="407.0" layoutY="236.0" text="Class" textFill="#bababa">
+               <font>
+                  <Font name="Century Gothic" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="-1.0" prefHeight="30.0" prefWidth="945.0" style="-fx-background-color: #17ca9a;">
+         <children>
+            <Button contentDisplay="GRAPHIC_ONLY" layoutX="867.0" mnemonicParsing="false" onAction="#min" prefHeight="21.0" prefWidth="31.0" style="-fx-background-color: #17ca9a;" text="Button" textFill="#17ca9a00" AnchorPane.rightAnchor="46.0">
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="MINUS" size="20" />
+               </graphic>
+            </Button>
+            <Button contentDisplay="GRAPHIC_ONLY" layoutX="903.0" mnemonicParsing="false" onAction="#close" prefHeight="9.0" prefWidth="31.0" style="-fx-background-color: #17ca9a;" text="Button" AnchorPane.rightAnchor="10.0">
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="TIMES" size="20" />
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="29.0" prefHeight="50.0" prefWidth="945.0" style="-fx-background-color: white;">
+         <children>
+            <FontAwesomeIconView fill="#17ca9a" glyphName="DROPBOX" layoutX="33.0" layoutY="35.0" size="30" />
+            <Text fill="#05d39b" layoutX="70.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SYSTEM MANAGEMENT SCHOOL">
+               <font>
+                  <Font name="Century Gothic Bold" size="17.0" />
+               </font>
+            </Text>
+            <Button alignment="BASELINE_LEFT" layoutX="860.0" layoutY="12.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="71.0" style="-fx-background-color: #17ca9a;" text="Logout" textFill="WHITE" AnchorPane.rightAnchor="14.0">
+               <font>
+                  <Font name="Century Gothic Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button alignment="BASELINE_LEFT" layoutX="498.0" layoutY="7.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="79.0" style="-fx-background-color: white;" styleClass="side" text="Borrow" textFill="#bababa" AnchorPane.rightAnchor="368.0">
+               <font>
+                  <Font name="Century Gothic Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button alignment="BASELINE_LEFT" layoutX="421.0" layoutY="7.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="71.0" style="-fx-background-color: white;" styleClass="side" text=" Home" textFill="#bababa" AnchorPane.rightAnchor="453.0">
+               <font>
+                  <Font name="Century Gothic Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button alignment="BASELINE_LEFT" layoutX="577.0" layoutY="7.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="79.0" style="-fx-background-color: white;" styleClass="side" text=" Return" textFill="#bababa" AnchorPane.rightAnchor="289.0">
+               <font>
+                  <Font name="Century Gothic Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button alignment="BASELINE_LEFT" layoutX="652.0" layoutY="6.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="79.0" style="-fx-background-color: white;" styleClass="side" text=" Report" textFill="#bababa" AnchorPane.rightAnchor="214.0">
+               <font>
+                  <Font name="Century Gothic Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button alignment="BASELINE_LEFT" layoutX="729.0" layoutY="7.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="101.0" style="-fx-background-color: white;" styleClass="side" text="Warehouse" textFill="#bababa" AnchorPane.rightAnchor="115.0">
+               <font>
+                  <Font name="Century Gothic Bold" size="15.0" />
+               </font>
+            </Button>
+            <AnchorPane layoutX="843.0" layoutY="11.0" prefHeight="30.0" prefWidth="2.0" style="-fx-background-color: #bababa;" AnchorPane.rightAnchor="100.0" />
+         </children>
+      </AnchorPane>
+   </children>
+   <stylesheets>
+      <URL value="@../css/table.css" />
+      <URL value="@../css/v_profiluser.css" />
+   </stylesheets>
+</AnchorPane>
